@@ -1,0 +1,51 @@
+{
+  "enableSearch": true,
+  "pages": [
+    {
+      "src": "404.md",
+      "title": "Page not found",
+      "headings": {},
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/canal-traffic.md",
+      "title": "Canal Traffic",
+      "headings": {
+        "canal-traffic": "Canal Traffic"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/topic3a.md",
+      "title": "Topic 3a",
+      "headings": {
+        "topic-3a": "Topic 3a"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/topic3b.md",
+      "title": "Topic 3b",
+      "headings": {
+        "topic-3b": "Topic 3b"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "contents/water-quality.md",
+      "title": "Water Quality",
+      "headings": {
+        "water-quality": "Water Quality"
+      },
+      "headingKeywords": {}
+    },
+    {
+      "src": "index.md",
+      "title": "Home Page",
+      "headings": {
+        "paralympics-in-the-canals-of-amsterdam": "Paralympics in the Canals of Amsterdam"
+      },
+      "headingKeywords": {}
+    }
+  ]
+}
