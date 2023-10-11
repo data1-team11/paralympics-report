@@ -30,8 +30,8 @@
 * [Water Quality]({{baseUrl}}/contents/water-quality.html)
 * [Canal Traffic]({{baseUrl}}/contents/canal-traffic.html)
 * Topic 3 :expanded:
-  * [Topic 3a]({{baseUrl}}/contents/topic3a.html)
-  * [Topic 3b]({{baseUrl}}/contents/topic3b.html)
+  * [Sustainability]({{baseUrl}}/contents/sustainability.html)
+  * [Safety]({{baseUrl}}/contents/safety.html)
       </site-nav>
     </div>
   </nav>
