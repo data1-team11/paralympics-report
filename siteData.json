@@ -17,17 +17,17 @@
     },
     {
       "src": "contents/topic3a.md",
-      "title": "Topic 3a",
+      "title": "Sustainability",
       "headings": {
-        "topic-3a": "Topic 3a"
+        "sustainability": "Sustainability"
       },
       "headingKeywords": {}
     },
     {
       "src": "contents/topic3b.md",
-      "title": "Topic 3b",
+      "title": "Safety",
       "headings": {
-        "topic-3b": "Topic 3b"
+        "safety": "Safety"
       },
       "headingKeywords": {}
     },
