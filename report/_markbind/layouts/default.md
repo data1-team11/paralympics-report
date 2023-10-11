@@ -8,8 +8,8 @@
     <li><a href="{{baseUrl}}/contents/water-quality.html" class="nav-link">Water Quality</a></li>
     <li><a href="{{baseUrl}}/contents/canal-traffic.html" class="nav-link">Canal Traffic</a></li>
     <dropdown header="Topic 3" class="nav-link">
-      <li><a href="{{baseUrl}}/contents/topic3a.html" class="dropdown-item">Topic 3a</a></li>
-      <li><a href="{{baseUrl}}/contents/topic3b.html" class="dropdown-item">Topic 3b</a></li>
+      <li><a href="{{baseUrl}}/contents/topic3a.html" class="dropdown-item">Sustainability</a></li>
+      <li><a href="{{baseUrl}}/contents/topic3b.html" class="dropdown-item">Safety</a></li>
     </dropdown>
     <li slot="right">
       <form class="navbar-form">
