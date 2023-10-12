@@ -49,9 +49,7 @@
       "src": "contents/water-quality.md",
       "title": "Water Quality",
       "headings": {
-        "water-quality": "Water Quality",
-        "first-assignment": "First assignment",
-        "this-first-assignment-is-focused-on-the-pollution-levels-of-the-water-in-the-canals-and-the-different-formats-of-data-available": "This first assignment is focused on the pollution levels of the water in the canals and the different formats of data available."
+        "water-quality": "Water Quality"
       },
       "headingKeywords": {}
     },
