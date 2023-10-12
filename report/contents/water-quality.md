@@ -6,9 +6,9 @@
 
 # Water Quality
 
-## First assignment
+#### First assignment
 
-### This first assignment is focused on the pollution levels of the water in the canals and the different formats of data available. 
+####### This first assignment is focused on the pollution levels of the water in the canals and the different formats of data available. 
 
 As a preliminary statement it is important to say that since the Amsterdam canals are not official bathing sites, water quality in them is not tested.
 
@@ -25,10 +25,10 @@ Find below the different **parameters** that we came up with in regards to water
 
 **Factors affecting the quality of water**
 
-2. Sewage overflow points https://data.overheid.nl/dataset/xnhveaeyheww2w#panel-resources 
+1. Sewage overflow points https://data.overheid.nl/dataset/xnhveaeyheww2w#panel-resources 
 2. Sewage pipes https://geodata.nationaalgeoregister.nl/rioned/gwsw/wfs/v1_0?request=GetFeature&service=WFS&version=1.1.0&outputFormat=application%2Fjson&typeName=gwsw:beheer_leiding
-2. Flows/currents
-2. Physical factors of the water. Temperature, visibility, depth.
+3. Flows/currents
+4. Physical factors of the water. Temperature, visibility, depth.
 
 
 
