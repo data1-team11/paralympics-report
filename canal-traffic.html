@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto</title>
+<title>quarto - Canal Traffic</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -82,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -116,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">quarto</h1>
+<h1 class="title">Canal Traffic</h1>
 </div>
 
 
@@ -131,21 +150,30 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This is a report on the feasibility of hosting a 5km open water swimming event through the canals of Amsterdam, based on the concerns raised by the municipality of Amsterdam.</p>
-<p>The key facts of the event are as follows:</p>
-<ul>
-<li><p>What: 5km open water swim</p></li>
-<li><p>Where: canals of Amsterdam</p></li>
-<li><p>When: May 2024</p></li>
-<li><p><a href="./water.html">water</a></p></li>
-<li><p><a href="./sustainability.html">sustainability</a></p></li>
-<li><p><a href="./canal-traffic.html">canal traffic</a></p></li>
-<li><p><a href="./safety.html">safety</a></p></li>
-</ul>
+<p>For the second category, continuity of boat traffic, we look towards hosting the event outside of ‘rush hours’ on the canals.</p>
+<p>As can be seen in the figure below the busiest hours on the water usually start around 15:00.</p>
+<p>For that reason the swimming event will be finished before 15:00.</p>
+<p>As people swim about 8 km/h, each round of 5 km would take approximately 40 minutes. <span class="citation" data-cites="thornton_speed_2019">(<a href="#ref-thornton_speed_2019" role="doc-biblioref">Thornton 2019</a>)</span></p>
+<p>With maximum 120 swimmers per group it would take 25 waves to accommodate all 3000 swimmers. <span class="citation" data-cites="british_triathlon_open_nodate">(<a href="#ref-british_triathlon_open_nodate" role="doc-biblioref">Triathlon n.d.</a>)</span></p>
+<p>The first wave of the race starts at 7:00 am with a next wave going every 20 minutes, this way the last wave will be out of the water by 15:00.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://github.com/data1-team11/paralympics-report/assets/146421346/bb17d756-be6b-41d0-8614-4533bb6f3572.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">image</figcaption>
+</figure>
+</div>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-thornton_speed_2019" class="csl-entry" role="listitem">
+Thornton, Jodi "Jato". 2019. <span>“The <span>Speed</span> of <span>Human</span> <span>Swimming</span>.”</span> <em>LIVESTRONG.COM</em>. <a href="https://www.livestrong.com/article/456880-the-speed-of-human-swimming/">https://www.livestrong.com/article/456880-the-speed-of-human-swimming/</a>.
+</div>
+<div id="ref-british_triathlon_open_nodate" class="csl-entry" role="listitem">
+Triathlon, British. n.d. <span>“Open <span>Water</span> <span>Swimming</span> <span>Safety</span> <span>Guide</span> for <span>Multi</span>-<span>Sport</span> <span>Events</span>.”</span> <em>British Triathlon</em>. Accessed October 13, 2023. <a href="https://www.triathlonscotland.org/files/British-Triathlon-Open-Water-Swimming-Safety-Guidelines-08.pdf">https://www.triathlonscotland.org/files/British-Triathlon-Open-Water-Swimming-Safety-Guidelines-08.pdf</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "docs/index.html",
+    "href": "docs/index.html",
+    "title": "Water: Paralympics in the Canals of Amsterdam",
+    "section": "",
+    "text": "Water: Paralympics in the Canals of Amsterdam\nParis is hosting the Paralympics in 2024. One of the events at the Paralympics is an open water swimming event in the Seine (apparently the water is clean or so the French say). Since the City of Amsterdam thinks it is better than Paris, they want to host an event before the Paralympics, snubbing the Parisians. The idea is to host a 5km. open water swimming event through the canals of Amsterdam. You are asked by the municipality of Amsterdam to advise on the feasibility of the event from the perspective of the safety of the partaking athletes from an environmental perspective. The event is going to be hosted in May.\nAMS Institute\nMSc. Metropolitan Analysis Design and Engineering\nTeam members Chua, Ka Yi Corona, Juan Jose van Winkelen Youri"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "quarto",
+    "section": "",
+    "text": "This is a report on the feasibility of hosting a 5km open water swimming event through the canals of Amsterdam, based on the concerns raised by the municipality of Amsterdam.\nThe key facts of the event are as follows:\n\nWhat: 5km open water swim\nWhere: canals of Amsterdam\nWhen: May 2024\nwater\nsustainability\ncanal traffic\nsafety"
+  },
+  {
+    "objectID": "safety.html",
+    "href": "safety.html",
+    "title": "Safety",
+    "section": "",
+    "text": "In order to host a swimming event in the city centre of Amsterdam certain ‘variables’ or risks need to be assessed. Our field of attention is subdivided in the following categories: safety, continuity of boat traffic, sustainability and economic feasibility. \n\nFirst of these categories is safety, the safety of all swimmers must be ensured during the whole duration of the race. During the event safety measures consist of: - Lifeguards in canoes;  As advised by the Open Water Swimming Safety Guide for Multi-Sport Events from the British Triathlon organisation boats should be in the water to be able to rescue swimmers in distress. A ratio of a minimum of one boat per twenty swimmers is advised in waters where shorelines are easily reachable. A swimmer should also always be within 50 meters range of a lifeguard. (British Triathlon, 2023) Since most of the chosen route goes through canals it is deemed unsafe to have boats sailing so close alongside the swimmers. For that reason lifeguards will be present every 50 meters in canoes instead of on boats. This also contributes to the sustainability of the event. - Safety platforms in the water;  To make sure distressed swimmers can easily leave the water platforms are placed every 100m alongside the swimming route where quay walls make exiting the water difficult."
+  },
+  {
+    "objectID": "canal-traffic.html",
+    "href": "canal-traffic.html",
+    "title": "Canal Traffic",
+    "section": "",
+    "text": "For the second category, continuity of boat traffic, we look towards hosting the event outside of ‘rush hours’ on the canals.\nAs can be seen in the figure below the busiest hours on the water usually start around 15:00.\nFor that reason the swimming event will be finished before 15:00.\nAs people swim about 8 km/h, each round of 5 km would take approximately 40 minutes. (Thornton 2019)\nWith maximum 120 swimmers per group it would take 25 waves to accommodate all 3000 swimmers. (Triathlon n.d.)\nThe first wave of the race starts at 7:00 am with a next wave going every 20 minutes, this way the last wave will be out of the water by 15:00.\n\n\n\nimage\n\n\n\n\n\n\nReferences\n\nThornton, Jodi \"Jato\". 2019. “The Speed of Human Swimming.” LIVESTRONG.COM. https://www.livestrong.com/article/456880-the-speed-of-human-swimming/.\n\n\nTriathlon, British. n.d. “Open Water Swimming Safety Guide for Multi-Sport Events.” British Triathlon. Accessed October 13, 2023. https://www.triathlonscotland.org/files/British-Triathlon-Open-Water-Swimming-Safety-Guidelines-08.pdf."
+  },
+  {
+    "objectID": "data/qgis-sewage-nodes/sewageNodes_nonOverflows.html",
+    "href": "data/qgis-sewage-nodes/sewageNodes_nonOverflows.html",
+    "title": "quarto",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     dataset\n\n\n                GEOGCRS[“WGS 84”,ENSEMBLE[“World Geodetic System 1984 ensemble”,MEMBER[“World Geodetic System 1984 (Transit)”],MEMBER[“World Geodetic System 1984 (G730)”],MEMBER[“World Geodetic System 1984 (G873)”],MEMBER[“World Geodetic System 1984 (G1150)”],MEMBER[“World Geodetic System 1984 (G1674)”],MEMBER[“World Geodetic System 1984 (G1762)”],MEMBER[“World Geodetic System 1984 (G2139)”],ELLIPSOID[“WGS 84”,6378137,298.257223563,LENGTHUNIT[“metre”,1]],ENSEMBLEACCURACY[2.0]],PRIMEM[“Greenwich”,0,ANGLEUNIT[“degree”,0.0174532925199433]],CS[ellipsoidal,3],AXIS[“geodetic latitude (Lat)”,north,ORDER[1],ANGLEUNIT[“degree”,0.0174532925199433]],AXIS[“geodetic longitude (Lon)”,east,ORDER[2],ANGLEUNIT[“degree”,0.0174532925199433]],AXIS[“ellipsoidal height (h)”,up,ORDER[3],LENGTHUNIT[“metre”,1]],USAGE[SCOPE[“Geodesy. Navigation and positioning using GPS satellite system.”],AREA[“World.”],BBOX[-90,-180,90,180]],ID[“EPSG”,4979]] +proj=longlat +datum=WGS84 +no_defs 60111 520000111 EPSG:4979 WGS 84 longlat EPSG:7030 true"
+  },
+  {
+    "objectID": "data/qgis-sewage-nodes/sewageNodes_overflows.html",
+    "href": "data/qgis-sewage-nodes/sewageNodes_overflows.html",
+    "title": "quarto",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     dataset\n\n\n                GEOGCRS[“WGS 84”,ENSEMBLE[“World Geodetic System 1984 ensemble”,MEMBER[“World Geodetic System 1984 (Transit)”],MEMBER[“World Geodetic System 1984 (G730)”],MEMBER[“World Geodetic System 1984 (G873)”],MEMBER[“World Geodetic System 1984 (G1150)”],MEMBER[“World Geodetic System 1984 (G1674)”],MEMBER[“World Geodetic System 1984 (G1762)”],MEMBER[“World Geodetic System 1984 (G2139)”],ELLIPSOID[“WGS 84”,6378137,298.257223563,LENGTHUNIT[“metre”,1]],ENSEMBLEACCURACY[2.0]],PRIMEM[“Greenwich”,0,ANGLEUNIT[“degree”,0.0174532925199433]],CS[ellipsoidal,3],AXIS[“geodetic latitude (Lat)”,north,ORDER[1],ANGLEUNIT[“degree”,0.0174532925199433]],AXIS[“geodetic longitude (Lon)”,east,ORDER[2],ANGLEUNIT[“degree”,0.0174532925199433]],AXIS[“ellipsoidal height (h)”,up,ORDER[3],LENGTHUNIT[“metre”,1]],USAGE[SCOPE[“Geodesy. Navigation and positioning using GPS satellite system.”],AREA[“World.”],BBOX[-90,-180,90,180]],ID[“EPSG”,4979]] +proj=longlat +datum=WGS84 +no_defs 60111 520000111 EPSG:4979 WGS 84 longlat EPSG:7030 true"
+  },
+  {
+    "objectID": "data/qgis-sewage-nodes/sewage_nodes.html",
+    "href": "data/qgis-sewage-nodes/sewage_nodes.html",
+    "title": "quarto",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     dataset\n\n\n                GEOGCRS[“WGS 84”,ENSEMBLE[“World Geodetic System 1984 ensemble”,MEMBER[“World Geodetic System 1984 (Transit)”],MEMBER[“World Geodetic System 1984 (G730)”],MEMBER[“World Geodetic System 1984 (G873)”],MEMBER[“World Geodetic System 1984 (G1150)”],MEMBER[“World Geodetic System 1984 (G1674)”],MEMBER[“World Geodetic System 1984 (G1762)”],MEMBER[“World Geodetic System 1984 (G2139)”],ELLIPSOID[“WGS 84”,6378137,298.257223563,LENGTHUNIT[“metre”,1]],ENSEMBLEACCURACY[2.0]],PRIMEM[“Greenwich”,0,ANGLEUNIT[“degree”,0.0174532925199433]],CS[ellipsoidal,3],AXIS[“geodetic latitude (Lat)”,north,ORDER[1],ANGLEUNIT[“degree”,0.0174532925199433]],AXIS[“geodetic longitude (Lon)”,east,ORDER[2],ANGLEUNIT[“degree”,0.0174532925199433]],AXIS[“ellipsoidal height (h)”,up,ORDER[3],LENGTHUNIT[“metre”,1]],USAGE[SCOPE[“Geodesy. Navigation and positioning using GPS satellite system.”],AREA[“World.”],BBOX[-90,-180,90,180]],ID[“EPSG”,4979]] +proj=longlat +datum=WGS84 +no_defs 60111 520000111 EPSG:4979 WGS 84 longlat EPSG:7030 true"
+  },
+  {
+    "objectID": "sustainability.html",
+    "href": "sustainability.html",
+    "title": "Sustainability",
+    "section": "",
+    "text": "Due to the lack of exhaust gas treatment systems in boat engines, as found in all modern car engines, a modern 5 horsepower 4-stroke outboard engine can be as polluting as 39 passenger cars driving at 95 km/h. (Propel 2022) There are about 12550 boats in the canals of Amsterdam, approximately 550 of those are commercial boats, the remaining 12000 are recreational boats. Of the commercial fleet about 75% is emission free, while for recreational boats this percentage is only 5%. (Sterling 2020) Water toxicity as a result of fossil fuelled boats can stay present up to 14 days after the use of boats (Jüttner et al. 1995). For these reasons no fossil fuelled boats are used during the city swim.\n\n\n\n\nReferences\n\nJüttner, Friedrich, Diedrich Backhaus, Uwe Matthias, Ulf Essers, Rolf Greiner, and Bernd Mahr. 1995. “Emissions of Two- and Four-Stroke Outboard Engines—i. Quantification of Gases and VOC.” Water Research 29 (8): 1976–82. https://doi.org/https://doi.org/10.1016/0043-1354(94)00330-A.\n\n\nPropel. 2022. “Why Amsterdam Is a Perfect Example of Cities Going Carbon-Neutral.” Why Amsterdam Is a Perfect Example of Cities Going Carbon-Neutral. https://propel.me/nl/article/why-amsterdam-is-a-perfect-example-of-cities-going-carbon-neutral/.\n\n\nSterling, Toby. 2020. “Amsterdam’s Boats Go Electric Ahead of 2025 Diesel Ban.” Reuters, March. https://www.reuters.com/article/us-climate-change-netherlands-idUSKBN20Q1W7."
+  },
+  {
+    "objectID": "water.html",
+    "href": "water.html",
+    "title": "Water Quality",
+    "section": "",
+    "text": "This first assignment is focused on the pollution levels of the water in the canals and the different formats of data available.\n\nAs a preliminary statement it is important to say that since the Amsterdam canals are not official bathing sites, water quality in them is not tested.\nFind below the different parameters that we came up with in regards to water pollution levels along with the relevant available sources (if existant) of information and their formats.\n\n\n\n#\nParameter\nExplanation\nSource\nFormat\n\n\n\n\n1.\nPollution levels in Herensgracht and Prinsengracht\nChemical composition of the water\nStudy\nJournal\n\n\n2.\nPollution levels in swimming locations\nChemical levels in swimming locations in 2019 with interpreted data\nDataset\nExcel\n\n\n3.\nPlaces with sensors available.\n \n \n \n\n\n4.\nHistorical data for water quality.\n \n \n \n\n\n\nFactors affecting the quality of water\n\nSewage overflow points https://data.overheid.nl/dataset/xnhveaeyheww2w#panel-resources\nSewage pipes https://geodata.nationaalgeoregister.nl/rioned/gwsw/wfs/v1_0?request=GetFeature&service=WFS&version=1.1.0&outputFormat=application%2Fjson&typeName=gwsw:beheer_leiding\nFlows/currents\nPhysical factors of the water. Temperature, visibility, depth."
+  },
+  {
+    "objectID": "water.html#first-assignment",
+    "href": "water.html#first-assignment",
+    "title": "Water Quality",
+    "section": "",
+    "text": "This first assignment is focused on the pollution levels of the water in the canals and the different formats of data available.\n\nAs a preliminary statement it is important to say that since the Amsterdam canals are not official bathing sites, water quality in them is not tested.\nFind below the different parameters that we came up with in regards to water pollution levels along with the relevant available sources (if existant) of information and their formats.\n\n\n\n#\nParameter\nExplanation\nSource\nFormat\n\n\n\n\n1.\nPollution levels in Herensgracht and Prinsengracht\nChemical composition of the water\nStudy\nJournal\n\n\n2.\nPollution levels in swimming locations\nChemical levels in swimming locations in 2019 with interpreted data\nDataset\nExcel\n\n\n3.\nPlaces with sensors available.\n \n \n \n\n\n4.\nHistorical data for water quality.\n \n \n \n\n\n\nFactors affecting the quality of water\n\nSewage overflow points https://data.overheid.nl/dataset/xnhveaeyheww2w#panel-resources\nSewage pipes https://geodata.nationaalgeoregister.nl/rioned/gwsw/wfs/v1_0?request=GetFeature&service=WFS&version=1.1.0&outputFormat=application%2Fjson&typeName=gwsw:beheer_leiding\nFlows/currents\nPhysical factors of the water. Temperature, visibility, depth."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  }
+]

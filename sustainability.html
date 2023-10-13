@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto</title>
+<title>quarto - Sustainability</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -82,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./index.html" rel="" target="">
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
@@ -94,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Water</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./sustainability.html" rel="" target="">
+    <a class="nav-link active" href="./sustainability.html" rel="" target="" aria-current="page">
  <span class="menu-text">Sustainability</span></a>
   </li>  
 </ul>
@@ -116,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">quarto</h1>
+<h1 class="title">Sustainability</h1>
 </div>
 
 
@@ -131,21 +150,22 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This is a report on the feasibility of hosting a 5km open water swimming event through the canals of Amsterdam, based on the concerns raised by the municipality of Amsterdam.</p>
-<p>The key facts of the event are as follows:</p>
-<ul>
-<li><p>What: 5km open water swim</p></li>
-<li><p>Where: canals of Amsterdam</p></li>
-<li><p>When: May 2024</p></li>
-<li><p><a href="./water.html">water</a></p></li>
-<li><p><a href="./sustainability.html">sustainability</a></p></li>
-<li><p><a href="./canal-traffic.html">canal traffic</a></p></li>
-<li><p><a href="./safety.html">safety</a></p></li>
-</ul>
+<p>Due to the lack of exhaust gas treatment systems in boat engines, as found in all modern car engines, a modern 5 horsepower 4-stroke outboard engine can be as polluting as 39 passenger cars driving at 95 km/h. <span class="citation" data-cites="propel_why_2022">(<a href="#ref-propel_why_2022" role="doc-biblioref">Propel 2022</a>)</span> There are about 12550 boats in the canals of Amsterdam, approximately 550 of those are commercial boats, the remaining 12000 are recreational boats. Of the commercial fleet about 75% is emission free, while for recreational boats this percentage is only 5%. <span class="citation" data-cites="sterling_amsterdams_2020">(<a href="#ref-sterling_amsterdams_2020" role="doc-biblioref">Sterling 2020</a>)</span> Water toxicity as a result of fossil fuelled boats can stay present up to 14 days after the use of boats <span class="citation" data-cites="JUTTNER19951976">(<a href="#ref-JUTTNER19951976" role="doc-biblioref">Jüttner et al. 1995</a>)</span>. For these reasons no fossil fuelled boats are used during the city swim.</p>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-JUTTNER19951976" class="csl-entry" role="listitem">
+Jüttner, Friedrich, Diedrich Backhaus, Uwe Matthias, Ulf Essers, Rolf Greiner, and Bernd Mahr. 1995. <span>“Emissions of Two- and Four-Stroke Outboard Engines—i. Quantification of Gases and VOC.”</span> <em>Water Research</em> 29 (8): 1976–82. https://doi.org/<a href="https://doi.org/10.1016/0043-1354(94)00330-A">https://doi.org/10.1016/0043-1354(94)00330-A</a>.
+</div>
+<div id="ref-propel_why_2022" class="csl-entry" role="listitem">
+Propel. 2022. <span>“Why <span>Amsterdam</span> Is a Perfect Example of Cities Going Carbon-Neutral.”</span> <em>Why Amsterdam Is a Perfect Example of Cities Going Carbon-Neutral</em>. <a href="https://propel.me/nl/article/why-amsterdam-is-a-perfect-example-of-cities-going-carbon-neutral/">https://propel.me/nl/article/why-amsterdam-is-a-perfect-example-of-cities-going-carbon-neutral/</a>.
+</div>
+<div id="ref-sterling_amsterdams_2020" class="csl-entry" role="listitem">
+Sterling, Toby. 2020. <span>“Amsterdam’s Boats Go Electric Ahead of 2025 Diesel Ban.”</span> <em>Reuters</em>, March. <a href="https://www.reuters.com/article/us-climate-change-netherlands-idUSKBN20Q1W7">https://www.reuters.com/article/us-climate-change-netherlands-idUSKBN20Q1W7</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
