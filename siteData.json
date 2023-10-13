@@ -11,7 +11,8 @@
       "src": "contents/canal-traffic.md",
       "title": "Canal Traffic",
       "headings": {
-        "canal-traffic": "Canal Traffic"
+        "canal-traffic": "Canal Traffic",
+        "references": "References ## "
       },
       "headingKeywords": {}
     },
@@ -26,7 +27,8 @@
       "src": "contents/safety.md",
       "title": "Safety",
       "headings": {
-        "safety": "Safety"
+        "safety": "Safety",
+        "references": "References "
       },
       "headingKeywords": {}
     },
@@ -41,7 +43,8 @@
       "src": "contents/sustainability.md",
       "title": "Sustainability",
       "headings": {
-        "sustainability": "Sustainability"
+        "sustainability": "Sustainability",
+        "references": "References  "
       },
       "headingKeywords": {}
     },
