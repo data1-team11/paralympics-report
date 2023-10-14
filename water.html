@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -222,20 +241,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># some basic analysis, e.g. min/max</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>We do know that sewage overflows are a major source of water pollution after heavy rain. <span class="citation" data-cites="leemans_wu_2017">[@leemans_wu_2017]</span> Waternet recommends people to avoid swimming in the waters for 3 days after heavy rainfall. <span class="citation" data-cites="waternet_swimming_nodate">[@waternet_swimming_nodate]</span></p>
-<p>Boat traffic is another source of water pollution. Due to the lack of exhaust gas treatment systems in boat engines, as found in all modern car engines, a modern 5 horsepower 4-stroke outboard engine can be as polluting as 39 passenger cars driving at 95 km/h. <span class="citation" data-cites="propel_why_2022">[@propel_why_2022]</span> As of 2020, there are about 12 550 boats in the canals of Amsterdam, approximately 550 of which are commercial boats, the remaining 12000 are recreational boats. Of the commercial fleet about 75% is emission free, while for recreational boats this percentage is only 5%. <span class="citation" data-cites="sterling_amsterdams_2020">[@sterling_amsterdams_2020]</span> This leaves us with ???? boats that are fossil fuel driven boats.</p>
+<p>We do know that sewage overflows are a major source of water pollution after heavy rain. <span class="citation" data-cites="leemans_wu_2017">(<a href="#ref-leemans_wu_2017" role="doc-biblioref">Leemans, Supervisor, and Hofstra 2017</a>)</span> Waternet recommends people to avoid swimming in the waters for 3 days after heavy rainfall. <span class="citation" data-cites="waternet_swimming_nodate">(<a href="#ref-waternet_swimming_nodate" role="doc-biblioref">Waternet n.d.</a>)</span></p>
+<p>Boat traffic is another source of water pollution. Due to the lack of exhaust gas treatment systems in boat engines, as found in all modern car engines, a modern 5 horsepower 4-stroke outboard engine can be as polluting as 39 passenger cars driving at 95 km/h. <span class="citation" data-cites="propel_why_2022">(<a href="#ref-propel_why_2022" role="doc-biblioref">Propel 2022</a>)</span> As of 2020, there are about 12 550 boats in the canals of Amsterdam, approximately 550 of which are commercial boats, the remaining 12000 are recreational boats. Of the commercial fleet about 75% is emission free, while for recreational boats this percentage is only 5%. <span class="citation" data-cites="sterling_amsterdams_2020">(<a href="#ref-sterling_amsterdams_2020" role="doc-biblioref">Sterling 2020</a>)</span> This leaves us with ???? boats that are fossil fuel driven boats.</p>
 <div class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># code to compute total number of fossil fuel driven boats</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Furthermore, water toxicity as a result of fossil fuelled boats can stay present up to 14 days after the use of boats <span class="citation" data-cites="JUTTNER19951976">[@JUTTNER19951976]</span>.</p>
+<p>Furthermore, water toxicity as a result of fossil fuelled boats can stay present up to 14 days after the use of boats <span class="citation" data-cites="JUTTNER19951976">(<a href="#ref-JUTTNER19951976" role="doc-biblioref">Jüttner et al. 1995</a>)</span>.</p>
 <section id="recommendations" class="level2">
 <h2 class="anchored" data-anchor-id="recommendations">Recommendations</h2>
 <p>As such, we would recommend finding an alternative backup route in case of heavy rainfall prior to the event. It would also be better for water quality should fossil fuelled boats be banned from the area for two weeks before the event, though this may not be economically feasible.</p>
 
 
+
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-JUTTNER19951976" class="csl-entry" role="listitem">
+Jüttner, Friedrich, Diedrich Backhaus, Uwe Matthias, Ulf Essers, Rolf Greiner, and Bernd Mahr. 1995. <span>“Emissions of Two- and Four-Stroke Outboard Engines—i. Quantification of Gases and VOC.”</span> <em>Water Research</em> 29 (8): 1976–82. https://doi.org/<a href="https://doi.org/10.1016/0043-1354(94)00330-A">https://doi.org/10.1016/0043-1354(94)00330-A</a>.
+</div>
+<div id="ref-leemans_wu_2017" class="csl-entry" role="listitem">
+Leemans, Rik, WU Supervisor, and Nynke Hofstra. 2017. <span>“<span>WU</span> <span>Supervisor</span>: <span>Nynke</span> <span>Hofstra</span> <span>Deltares</span> Supervisor: <span>Bas</span> van Der <span>Zaan</span> and <span>Erwin</span> <span>Meijers</span> <span>Waternet</span> Supervisor: <span>Liesbeth</span> <span>Hersbach</span>.”</span>
+</div>
+<div id="ref-propel_why_2022" class="csl-entry" role="listitem">
+Propel. 2022. <span>“Why <span>Amsterdam</span> Is a Perfect Example of Cities Going Carbon-Neutral.”</span> <em>Why Amsterdam Is a Perfect Example of Cities Going Carbon-Neutral</em>. <a href="https://propel.me/nl/article/why-amsterdam-is-a-perfect-example-of-cities-going-carbon-neutral/">https://propel.me/nl/article/why-amsterdam-is-a-perfect-example-of-cities-going-carbon-neutral/</a>.
+</div>
+<div id="ref-sterling_amsterdams_2020" class="csl-entry" role="listitem">
+Sterling, Toby. 2020. <span>“Amsterdam’s Boats Go Electric Ahead of 2025 Diesel Ban.”</span> <em>Reuters</em>, March. <a href="https://www.reuters.com/article/us-climate-change-netherlands-idUSKBN20Q1W7">https://www.reuters.com/article/us-climate-change-netherlands-idUSKBN20Q1W7</a>.
+</div>
+<div id="ref-waternet_swimming_nodate" class="csl-entry" role="listitem">
+Waternet. n.d. <span>“Swimming.”</span> Accessed October 14, 2023. <a href="https://www.waternet.nl/en/our-water/safe-swimming/">https://www.waternet.nl/en/our-water/safe-swimming/</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
