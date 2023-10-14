@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "quarto"
+  title: "Team 11"
   navbar:
     left:
       - href: index.qmd
@@ -10,8 +10,10 @@ website:
       - about.qmd
       - href: water.ipynb
         text: Water
+      - href: route-and-time.ipynb
+        text: Route & Time
       - href: sustainability.ipynb
-        text: Sustainability
+        text: Energy
 
 format:
   html:

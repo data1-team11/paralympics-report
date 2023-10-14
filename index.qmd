@@ -1,16 +1,19 @@
 ---
-title: "quarto"
+title: "Amsterdam Open Water Swim Meet Report"
 ---
 
 This is a report on the feasibility of hosting a 5km open water swimming event through the canals of Amsterdam, based on the concerns raised by the municipality of Amsterdam.
 
-The key facts of the event are as follows:
+**Key facts**
 
 * What: 5km open water swim
 * Where: canals of Amsterdam
 * When: May 2024
 
-* [water](water.ipynb)
-* [sustainability](sustainability.ipynb)
-* [canal traffic](canal-traffic.ipynb)
-* [safety](safety.ipynb)
+**Contents of report**
+
+1. [Feasibility of event based on water quality](water.ipynb)
+1. [Proposed swim route and event time](route-and-time.ipynb)
+1. Proposed location of event headquarters
+1. [Energy requirements for event](sustainability.ipynb)
+1. Accommodation requirements for tourists
