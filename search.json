@@ -4,7 +4,7 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "This is a website created as an assignment for YMS31303 Metropolitan Data 1, one of the courses required for the MSc. Metropolitan Analysis Design and Engineering at the AMS Institute.\n\nAssignment:\nParis is hosting the Paralympics in 2024. One of the events at the Paralympics is an open water swimming event in the Seine (apparently the water is clean or so the French say). Since the City of Amsterdam thinks it is better than Paris, they want to host an event before the Paralympics, snubbing the Parisians. The idea is to host a 5km. open water swimming event through the canals of Amsterdam. You are asked by the municipality of Amsterdam to advise on the feasibility of the event from the perspective of the safety of the partaking athletes from an environmental perspective. The event is going to be hosted in May.\n\n\nTeam members\n\nChua, Ka Yi\nCorona, Juan Jose\nvan Winkelen, Youri"
+    "text": "This is a website created as an assignment for YMS31303 Metropolitan Data 1, one of the courses required for the MSc. Metropolitan Analysis Design and Engineering at the AMS Institute in Amsterdam.\n\nAssignment:\nParis is hosting the Paralympics in 2024. One of the events at the Paralympics is an open water swimming event in the Seine (apparently the water is clean or so the French say). Since the City of Amsterdam thinks it is better than Paris, they want to host an event before the Paralympics, snubbing the Parisians. The idea is to host a 5km. open water swimming event through the canals of Amsterdam. You are asked by the municipality of Amsterdam to advise on the feasibility of the event from the perspective of the safety of the partaking athletes from an environmental perspective. The event is going to be hosted in May.\n\n\nTeam members\n\nChua, Ka Yi\nCorona, Juan José\nvan Winkelen, Youri"
   },
   {
     "objectID": "water.html",
@@ -88,6 +88,6 @@
     "href": "index.html",
     "title": "Amsterdam Open Water Swim Meet Report",
     "section": "",
-    "text": "This is a report on the feasibility of hosting a 5km open water swimming event through the canals of Amsterdam, based on the concerns raised by the municipality of Amsterdam.\nKey facts\n\nWhat: 5km open water swim\nWhere: canals of Amsterdam\nWhen: May 2024\n\nContents of report\n\nFeasibility of event based on water quality\nProposed swim route and event time\nProposed location of event headquarters\nEnergy requirements for event\nAccommodation requirements for tourists"
+    "text": "This is a report on the feasibility of hosting a 5km open water swimming event through the canals of Amsterdam, based on the theoretical concerns raised by the municipality of Amsterdam.\nKey facts\n\nWhat: The swim has to have a length of 5km.\nWhere: Has to be proposed anywhere in the canals of Amsterdam according to infromation gathered.\nWhen: May 2024\n\nContents of report\n\nFeasibility of event based on water quality\nProposed swim route and event time\nEnergy requirements for event\nProposed location of event headquarters\nAccommodation requirements for tourists"
   }
 ]
