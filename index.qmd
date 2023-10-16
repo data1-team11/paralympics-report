@@ -2,18 +2,18 @@
 title: "Amsterdam Open Water Swim Meet Report"
 ---
 
-This is a report on the feasibility of hosting a 5km open water swimming event through the canals of Amsterdam, based on the concerns raised by the municipality of Amsterdam.
+This is a report on the feasibility of hosting a 5km open water swimming event through the canals of Amsterdam, based on the theoretical concerns raised by the municipality of Amsterdam.
 
 **Key facts**
 
-* What: 5km open water swim
-* Where: canals of Amsterdam
+* What: The swim has to have a length of 5km.
+* Where: Has to be proposed anywhere in the canals of Amsterdam according to infromation gathered.
 * When: May 2024
 
 **Contents of report**
 
 1. [Feasibility of event based on water quality](water.ipynb)
 1. [Proposed swim route and event time](route-and-time.ipynb)
-1. Proposed location of event headquarters
 1. [Energy requirements for event](sustainability.ipynb)
+1. Proposed location of event headquarters
 1. Accommodation requirements for tourists

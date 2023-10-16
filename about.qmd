@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-This is a website created as an assignment for YMS31303 Metropolitan Data 1, one of the courses required for the MSc. Metropolitan Analysis Design and Engineering at the AMS Institute.
+This is a website created as an assignment for YMS31303 Metropolitan Data 1, one of the courses required for the MSc. Metropolitan Analysis Design and Engineering at the AMS Institute in Amsterdam.
 
 > Assignment:
 >
@@ -13,5 +13,5 @@ This is a website created as an assignment for YMS31303 Metropolitan Data 1, one
 Team members
 
 * Chua, Ka Yi
-* Corona, Juan Jose
+* Corona, Juan José
 * van Winkelen, Youri
