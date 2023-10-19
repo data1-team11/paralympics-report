@@ -3,6 +3,8 @@ project:
 
 website:
   title: "Team 11"
+  repo-url: https://github.com/data1-team11/paralympics-report
+  repo-actions: [edit, issue]
   navbar:
     left:
       - href: index.qmd
@@ -17,6 +19,9 @@ website:
         text: Transport
     right:
       - about.qmd
+    tools:
+      - icon: github
+        href: https://github.com/data1-team11/paralympics-report
 
 
 format:
