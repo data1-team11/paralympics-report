@@ -309,6 +309,29 @@ div.csl-indent {
 <pre><code>No. of lifeguard canoes required = max(6.0, 100.0) = 100.0</code></pre>
 </div>
 </div>
+<p>100 canoes are used for the safety of swimmers, by using canoes instead of electric boats a lot of greenhouse gas emission is prevented. If we were to use electric boats electricity would have been used. Exactly how much energy we are saving by using canoes is calculated below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>num_canoes <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>power_boat_kwh <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>time_race <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>power_use <span class="op">=</span> num_canoes<span class="op">*</span>power_boat_kwh<span class="op">*</span>time_race</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Used power by boats:'</span>,power_use, <span class="st">'kWh'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Used power by boats: 14000 kWh</code></pre>
+</div>
+</div>
+<p>Assuming that solar panels would be rented and installed for a week to power the boats the amount of solar panels needed is calculated below. Numbers about efficiency of solar panels are found here. https://voltasolar.nl/kenniscentrum/financieel/zonnepanelen-opbrengst/#:~:text=De%20afmetingen%20van%20een%20zonnepaneel,gemiddeld%20365%20Wp%20per%20zonnepaneel.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>wp_sp <span class="op">=</span> <span class="dv">365</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>kWh_year <span class="op">=</span> wp_sp <span class="op">*</span><span class="fl">0.85</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>kWh_week <span class="op">=</span> kWh_year<span class="op">/</span><span class="dv">52</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sp_needed <span class="op">=</span> power_use<span class="op">/</span>kWh_week</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of solar panels needed:'</span>, <span class="bu">int</span>(sp_needed)<span class="op">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of solar panels needed: 2347</code></pre>
+</div>
+</div>
 <p>##Conclusions</p>
 <p>Knowing that canals are too narrow for boats to navigate safely with swimmers around, lifeguards alongside the canals, along with platforms every 100m where quay walls are steep would suffice.</p>
 
