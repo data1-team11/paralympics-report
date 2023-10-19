@@ -7,17 +7,17 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
       - href: water.ipynb
         text: Water
-      - href: route-and-time.ipynb
-        text: Route & Time
-      - href: sustainability.ipynb
+      - href: energy.ipynb
         text: Energy
       - href: airbnb_listings_JJ.ipynb
         text: Housing
       - href: Transport.ipynb
         text: Transport
+    right:
+      - about.qmd
+
 
 format:
   html:
