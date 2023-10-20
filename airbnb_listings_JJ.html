@@ -161,22 +161,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<p>Note: before running this notebook, please download <a href="http://data.insideairbnb.com/the-netherlands/north-holland/amsterdam/2023-09-03/data/listings.csv.gz">listings.csv.gz</a> and place the extracted <code>listings.csv</code> in the <code>data</code> directory.</p>
 <p>tax hotels = 7% of turnover + 3 euros per room tax airbnb = 10% = 3 euros number of visitors = 30000 max profit = all visitors airbnb (depends on price) min profit = all visitors hotels (depends on price)</p>
 <p>from airbnb listings: discard listings with minimum stays of more than 7 nights #check sum the total ammount of people that fit the remaining airbnbs accomodate (19812) calculate average price of accomodation remaining listings for the remaining visitors (11188) they will stay in hotels average of 2.2 beds per room divide the number of rooms between the remaining tourists</p>
 <p>multiply number of available beds to average price</p>
 <p>sum airbnb + hotels taxes accordingly</p>
-<div class="cell" data-tags="[]" data-execution_count="1">
+<div class="cell" data-tags="[]" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>csv_data <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>listings <span class="op">=</span> <span class="bu">open</span>(<span class="st">"listings_full.csv"</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">'latin1'</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>listings <span class="op">=</span> <span class="bu">open</span>(<span class="st">"./data/listings.csv"</span>, <span class="st">'r'</span>, encoding<span class="op">=</span><span class="st">'latin1'</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> line <span class="kw">in</span> listings:</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> line.split(<span class="st">','</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    csv_data.append(data)</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>listings.close()</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"listings_full.csv"</span>,encoding<span class="op">=</span><span class="st">'latin1'</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"./data/listings.csv"</span>,encoding<span class="op">=</span><span class="st">'latin1'</span>)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">#ok_listings = pd.DataFrame(df.columns)</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df.columns)</span></span>
@@ -184,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df.maximum_nights)</span></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co">#we discard listings with minimum stays of more than 7 nights</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>ok_listings <span class="op">=</span> df[(df[<span class="st">'minimum_nights'</span>] <span class="op">&lt;</span> <span class="dv">8</span>)]</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>ok_listings <span class="op">=</span> df[(df[<span class="st">'minimum_nights'</span>] <span class="op">&lt;</span> <span class="dv">8</span>)].copy()</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co">#we check that all numeric values in our DataFrame sum</span></span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> ok_listings.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>,numeric_only<span class="op">=</span><span class="va">True</span>)</span>
@@ -251,30 +252,14 @@ Total tax revenue from Airbnb locations $ 1469360.9000000001
 Total tax revenue from hotel rooms $ 71543.25226687785
 Total tax revenue gathered for the government 1540904.152266878</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>C:\Users\jjcor\AppData\Local\Temp\ipykernel_9544\79030070.py:11: DtypeWarning: Columns (0) have mixed types. Specify dtype option on import or set low_memory=False.
-  df = pd.read_csv("listings_full.csv",encoding='latin1')
-C:\Users\jjcor\AppData\Local\Temp\ipykernel_9544\79030070.py:63: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  ok_listings['new_price'] = new_price
-C:\Users\jjcor\AppData\Local\Temp\ipykernel_9544\79030070.py:66: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  ok_listings['new_price'] = ok_listings['new_price'].astype(float)</code></pre>
-</div>
 </div>
 <p>Filter from dataframe the locations of airbnb Gather the different categories inside the column neighourhood Sum each category inside neighbourhood</p>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#It can't get mpre efficient than this</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Airbnb listings per neighbourhood:'</span>, ok_listings.neighbourhood_cleansed.value_counts())</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>figure <span class="op">=</span> px.bar(ok_listings[neighbourhood].value_counts, x<span class="op">=</span><span class="st">'neighbourhood'</span>, y<span class="op">=</span><span class="st">'number'</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>figure.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#It can't get mpre efficient than this</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Airbnb listings per neighbourhood:'</span>, ok_listings.neighbourhood_cleansed.value_counts())</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>figure <span class="op">=</span> px.bar(ok_listings[neighbourhood].value_counts, x<span class="op">=</span><span class="st">'neighbourhood'</span>, y<span class="op">=</span><span class="st">'number'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>figure.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of Airbnb listings per neighbourhood: neighbourhood_cleansed
 De Baarsjes - Oud-West                    1329
@@ -306,84 +291,84 @@ Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pip install geopy</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> certifi</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ssl</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopy.geocoders</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geopy.geocoders</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> Nominatim, Photon</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Workaround to fix SSL certififcate expired error on some laptops</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution taken from https://stackoverflow.com/a/50665487</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Error message:</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   GeocoderUnavailable: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): </span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Max retries exceeded with url: /reverse?lat=52.40164&amp;lon=4.95106&amp;format=json&amp;addressdetails=1 </span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] </span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   certificate verify failed: certificate has expired (_ssl.c:1006)')))</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>ctx <span class="op">=</span> ssl.create_default_context(cafile<span class="op">=</span>certifi.where())</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>geopy.geocoders.options.default_ssl_context <span class="op">=</span> ctx</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>geolocator <span class="op">=</span> Photon(user_agent<span class="op">=</span><span class="st">'geoapiExercises'</span>)</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co">#print(ok_listings.columns)</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co">#New dataframe with only 3 parameters</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb <span class="op">=</span> ok_listings[[<span class="st">'latitude'</span>, <span class="st">'longitude'</span>]]</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'longitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'longitude'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>,<span class="st">''</span>)</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.longitude <span class="op">=</span> (geolocs_airbnb.longitude.<span class="bu">str</span>[:<span class="dv">1</span>] <span class="op">+</span> <span class="st">'.'</span> <span class="op">+</span> geolocs_airbnb.longitude.<span class="bu">str</span>[<span class="dv">1</span>:])<span class="co">#.astype(float)</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co"># print(geolocs_airbnb.longitude)</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'latitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'latitude'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>,<span class="st">''</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.latitude <span class="op">=</span> (geolocs_airbnb.latitude.<span class="bu">str</span>[:<span class="dv">2</span>] <span class="op">+</span> <span class="st">'.'</span> <span class="op">+</span> geolocs_airbnb.latitude.<span class="bu">str</span>[<span class="dv">2</span>:])<span class="co">#.astype(float)</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="co">#print(type(geolocs_airbnb.latitude[5]))</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="co">#print(longitude)</span></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="co">#print(geolocs_airbnb)</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(geolocs_airbnb))</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(geolocs_airbnb)):</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    latitude, longitude <span class="op">=</span> geolocs_airbnb.iloc[i][<span class="st">'latitude'</span>],geolocs_airbnb.iloc[i][<span class="st">'longitude'</span>]</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>latitude<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>longitude<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    location <span class="op">=</span> geolocator.reverse((latitude, longitude), timeout<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>        street <span class="op">=</span> location.raw[<span class="st">'address'</span>][<span class="st">'road'</span>]</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>        geolocs_airbnb.loc[i, <span class="st">'street'</span>] <span class="op">=</span> street</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.head()</span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="co">#adding street as a column in our dataframe</span></span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'street'</span>] <span class="op">=</span> street</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pip install geopy</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> certifi</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ssl</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopy.geocoders</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geopy.geocoders</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> Nominatim, Photon</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Workaround to fix SSL certififcate expired error on some laptops</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution taken from https://stackoverflow.com/a/50665487</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Error message:</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   GeocoderUnavailable: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): </span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Max retries exceeded with url: /reverse?lat=52.40164&amp;lon=4.95106&amp;format=json&amp;addressdetails=1 </span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] </span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   certificate verify failed: certificate has expired (_ssl.c:1006)')))</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>ctx <span class="op">=</span> ssl.create_default_context(cafile<span class="op">=</span>certifi.where())</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>geopy.geocoders.options.default_ssl_context <span class="op">=</span> ctx</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>geolocator <span class="op">=</span> Photon(user_agent<span class="op">=</span><span class="st">'geoapiExercises'</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">#print(ok_listings.columns)</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co">#New dataframe with only 3 parameters</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb <span class="op">=</span> ok_listings[[<span class="st">'latitude'</span>, <span class="st">'longitude'</span>]]</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'longitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'longitude'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>,<span class="st">''</span>)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.longitude <span class="op">=</span> (geolocs_airbnb.longitude.<span class="bu">str</span>[:<span class="dv">1</span>] <span class="op">+</span> <span class="st">'.'</span> <span class="op">+</span> geolocs_airbnb.longitude.<span class="bu">str</span>[<span class="dv">1</span>:])<span class="co">#.astype(float)</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="co"># print(geolocs_airbnb.longitude)</span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'latitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'latitude'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>,<span class="st">''</span>)</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.latitude <span class="op">=</span> (geolocs_airbnb.latitude.<span class="bu">str</span>[:<span class="dv">2</span>] <span class="op">+</span> <span class="st">'.'</span> <span class="op">+</span> geolocs_airbnb.latitude.<span class="bu">str</span>[<span class="dv">2</span>:])<span class="co">#.astype(float)</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="co">#print(type(geolocs_airbnb.latitude[5]))</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="co">#print(longitude)</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="co">#print(geolocs_airbnb)</span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(geolocs_airbnb))</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(geolocs_airbnb)):</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    latitude, longitude <span class="op">=</span> geolocs_airbnb.iloc[i][<span class="st">'latitude'</span>],geolocs_airbnb.iloc[i][<span class="st">'longitude'</span>]</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>latitude<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>longitude<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    location <span class="op">=</span> geolocator.reverse((latitude, longitude), timeout<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>        street <span class="op">=</span> location.raw[<span class="st">'address'</span>][<span class="st">'road'</span>]</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>        geolocs_airbnb.loc[i, <span class="st">'street'</span>] <span class="op">=</span> street</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.head()</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="co">#adding street as a column in our dataframe</span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'street'</span>] <span class="op">=</span> street</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>SyntaxError: invalid syntax (4229780995.py, line 6)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print(geolocs_airbnb.street)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#It can't get more efficient than this (again)</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Airbnb listings per street:'</span>, geolocs_airbnb.street.value_counts())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print(geolocs_airbnb.street)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#It can't get more efficient than this (again)</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Airbnb listings per street:'</span>, geolocs_airbnb.street.value_counts())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>NameError: name 'geolocs_airbnb' is not defined</code></pre>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ok_listings.columns[<span class="dv">68</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ok_listings.columns[<span class="dv">68</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>NameError: name 'ok_listings' is not defined</code></pre>
 </div>
 </div>
 <div class="cell" data-tags="[]" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>licenses <span class="op">=</span> (ok_listings.license.nunique())</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>license_values <span class="op">=</span>(ok_listings.license.value_counts())</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(license_values)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>exemptions <span class="op">=</span> (ok_listings.license.value_counts()[<span class="st">'Exempt'</span>])</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>ulicenses <span class="op">=</span> licenses<span class="op">-</span>exemptions</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of unique Airbnb licenses in Amsterdam (not counting the exempt values):'</span>,ulicenses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>licenses <span class="op">=</span> (ok_listings.license.nunique())</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>license_values <span class="op">=</span>(ok_listings.license.value_counts())</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(license_values)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>exemptions <span class="op">=</span> (ok_listings.license.value_counts()[<span class="st">'Exempt'</span>])</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>ulicenses <span class="op">=</span> licenses<span class="op">-</span>exemptions</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of unique Airbnb licenses in Amsterdam (not counting the exempt values):'</span>,ulicenses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>license
 Exempt                      600
