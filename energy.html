@@ -212,7 +212,7 @@ div.csl-indent {
 
 </header>
 
-<p>The Municipality is worried that the canal and support boats might pollute the air with their diesel engines. Since the Municipality wants to create ideal conditions for the swimmers so that they can set records, we need to see if their concern is warranted and what should or could be done to improve conditions. Amsterdam also wants to advertise this event as a Neutral energy Event (NEE).</p>
+<p>The Municipality is worried that the canal and support boats might pollute the air with their diesel engines. Since the Municipality wants to create ideal conditions for the swimmers so that they can set records, we need to see if their concern is warranted and what should or could be done to improve conditions. Amsterdam also wants to advertise this event as a Neutral Energy Event (NEE).</p>
 <p>Here we list some <strong>key information</strong> in regards to how we tackled the problem of planning such event. The following chart presents the key elements to know, their <strong>sources</strong> and their <strong>formats</strong>.</p>
 <table class="table">
 <colgroup>
@@ -295,8 +295,20 @@ div.csl-indent {
 </tr>
 </tbody>
 </table>
-<div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># //</span><span class="al">TODO</span><span class="co"> code for computing number of diesel/fossil fuel driven and electrical driven boats</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>com_boats <span class="op">=</span> <span class="dv">550</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>rec_boats <span class="op">=</span> <span class="dv">12550</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>perc_com_boats_emission_free <span class="op">=</span> <span class="dv">75</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>perc_rec_boats_emission_free <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>com_boats_emission_free <span class="op">=</span> com_boats <span class="op">*</span> (perc_com_boats_emission_free<span class="op">/</span><span class="dv">100</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>rec_boats_emission_free <span class="op">=</span> rec_boats <span class="op">*</span> (perc_rec_boats_emission_free<span class="op">/</span><span class="dv">100</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>boats_emission_free <span class="op">=</span> com_boats_emission_free <span class="op">+</span> rec_boats_emission_free</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>boats_emission <span class="op">=</span> com_boats <span class="op">+</span> rec_boats <span class="op">-</span> boats_emission_free</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The number of emission free boats is"</span>, <span class="bu">int</span>(boats_emission_free))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The number of  boats with emission is"</span>, <span class="bu">int</span>(boats_emission))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="peak-times-for-canal-boats" class="level3">
@@ -316,24 +328,35 @@ div.csl-indent {
 <li>For safety reasons, each wave of swimmers should have a maximum of 120 swimmers in the group. <span class="citation" data-cites="british_triathlon_open_nodate">(<a href="#ref-british_triathlon_open_nodate" role="doc-biblioref">Triathlon n.d.</a>)</span></li>
 <li>We plan for around 3000 swimmers for the swim meet, similar to the Amsterdam City Swim. <span class="citation" data-cites="amsterdam_city_swim_swim_nodate">(<a href="#ref-amsterdam_city_swim_swim_nodate" role="doc-biblioref">Swim n.d.</a>)</span></li>
 </ol>
-<div class="cell" data-execution_count="6">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LENGTH_OF_ROUTE <span class="op">=</span> <span class="dv">5000</span> <span class="co"># in meters</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>NUM_SWIMMERS_PER_WAVE <span class="op">=</span> <span class="dv">120</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># save variable so it can be accessed from other notebooks</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store NUM_SWIMMERS_PER_WAVE </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store LENGTH_OF_ROUTE</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Original text:</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># As people swim about 8 km/h, each round of 5 km would take approximately 40 minutes. </span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># With maximum 120 swimmers per group it would take 25 waves to accommodate all 3000 swimmers. </span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># //</span><span class="al">TODO</span><span class="co"> compute start time of event</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>num_swimmers <span class="op">=</span> <span class="dv">3000</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>speed_swimmers_kmh <span class="op">=</span> <span class="dv">8</span> </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>time_between_waves <span class="op">=</span> <span class="dv">20</span> <span class="co">#minutes</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># save variable so it can be accessed from other notebooks</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store LENGTH_OF_ROUTE</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store num_swimmers</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store NUM_SWIMMERS_PER_WAVE</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store speed_swimmers_kmh</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>speed_swimmers_ms <span class="op">=</span> speed_swimmers_kmh <span class="op">*</span><span class="dv">1000</span> <span class="op">/</span> (<span class="dv">60</span><span class="op">*</span><span class="dv">60</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>num_waves <span class="op">=</span> num_swimmers<span class="op">/</span>NUM_SWIMMERS_PER_WAVE</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>sec_per_wave <span class="op">=</span> LENGTH_OF_ROUTE<span class="op">/</span>speed_swimmers_ms</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>min_per_wave <span class="op">=</span> sec_per_wave<span class="op">/</span><span class="dv">60</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>duration_swim_min <span class="op">=</span> min_per_wave <span class="op">+</span> (num_waves <span class="op">*</span> time_between_waves)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>duration_swim_hours <span class="op">=</span> duration_swim_min<span class="op">/</span><span class="dv">60</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> <span class="fl">15.00</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> end_time <span class="op">-</span> duration_swim_hours</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The start time for the first wave of swimmers is"</span>, <span class="bu">int</span>(start_time),<span class="st">":00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Stored 'NUM_SWIMMERS_PER_WAVE' (int)
 Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 </div>
 </div>
-<p>Thus, the first wave of the race starts at 7:00 am with a next wave going every 20 minutes, this way the last wave will be out of the water by 15:00.</p>
+<p>Thus, the first wave of the race starts at 6:00 am with a next wave going every 20 minutes, this way the last wave will be out of the water by 15:00.</p>
 </section>
 </section>
 <section id="energy-use-of-boats" class="level2">
@@ -405,7 +428,7 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <li><p>Safety platforms in the water;</p>
 <p>To make sure distressed swimmers can easily leave the water platforms are placed every 100m alongside the swimming route where quay walls make exiting the water difficult.</p></li>
 </ul>
-<div class="cell" data-execution_count="9">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>MAX_DISTANCE_BETWEEN_LIFEGUARDS <span class="op">=</span> <span class="dv">50</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>NUM_SWIMMERS_PER_SUPPORT_BOAT <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve variables stored in other notebooks</span></span>
@@ -426,7 +449,7 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <section id="energy-requirements-for-support-boats" class="level4">
 <h4 class="anchored" data-anchor-id="energy-requirements-for-support-boats">Energy requirements for support boats</h4>
 <p>100 canoes are used for the safety of swimmers, by using canoes instead of electric boats a lot of greenhouse gas emission is prevented. If we were to use electric boats electricity would have been used. Exactly how much energy we are saving by using canoes is calculated below.</p>
-<div class="cell" data-execution_count="10">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>num_canoes <span class="op">=</span> <span class="dv">100</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>power_boat_kwh <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>time_race <span class="op">=</span> <span class="dv">7</span></span>
@@ -441,7 +464,7 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <section id="solar-panels-or-wind-turbines-required" class="level4">
 <h4 class="anchored" data-anchor-id="solar-panels-or-wind-turbines-required">Solar panels or wind turbines required</h4>
 <p>Assuming that solar panels would be rented and installed for a week to power the boats the amount of solar panels needed is calculated below. Numbers about efficiency of solar panels are found at <span class="citation" data-cites="Voltasolar_2023">(<a href="#ref-Voltasolar_2023" role="doc-biblioref">Voltasolar 2023</a>)</span>.</p>
-<div class="cell" data-execution_count="11">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>wp_sp <span class="op">=</span> <span class="dv">365</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>kWh_year <span class="op">=</span> wp_sp <span class="op">*</span><span class="fl">0.85</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>kWh_week <span class="op">=</span> kWh_year<span class="op">/</span><span class="dv">52</span></span>
