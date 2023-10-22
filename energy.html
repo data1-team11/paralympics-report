@@ -492,6 +492,17 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <pre><code>Number of solar panels needed: 2347</code></pre>
 </div>
 </div>
+<p>If the city were to actually use electrified boats the solar panels that are needed to harvest the energy could be placed on the water. <span class="citation" data-cites="floatingsolar">(<a href="#ref-floatingsolar" role="doc-biblioref"><strong>floatingsolar?</strong></a>)</span> has a circular system that floats. The size of the floating solar field is calculated below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>area_circle <span class="op">=</span>  <span class="fl">2347.0</span><span class="op">*</span><span class="fl">1.65</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#surface = 3.14*r^2</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> math.sqrt(area_circle<span class="op">/</span><span class="fl">3.14</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>diameter <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>r</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The diameter of the floating solar panels is"</span>, diameter, <span class="st">"m"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>The circle needs to have a diameter of about 70m, this fits in the water close to the marine terrain as shown on the picture below.</p>
 <p><a href="attachment:diameter%20solar.JPG">diameter solar.JPG</a></p>
 </section>
