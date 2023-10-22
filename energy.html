@@ -363,9 +363,26 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <h2 class="anchored" data-anchor-id="energy-use-of-boats">Energy use of boats</h2>
 <section id="energy-requirements-for-canal-boats-in-general" class="level3">
 <h3 class="anchored" data-anchor-id="energy-requirements-for-canal-boats-in-general">Energy requirements for canal boats in general</h3>
-<section id="energy-use-of-canal-boats-compared-to-other-activities" class="level4">
-<h4 class="anchored" data-anchor-id="energy-use-of-canal-boats-compared-to-other-activities">Energy use of canal boats compared to other activities</h4>
-<p>// TODO Try to compare the energy use of the canal boats to some other activities in the city. Use canal boats more or less energy in relation to their carbon footprint compared to these other activities? (Refer to previous first table for info &amp; reference)</p>
+<section id="energy-use-of-canal-boats-compared-to-driving-a-car" class="level4">
+<h4 class="anchored" data-anchor-id="energy-use-of-canal-boats-compared-to-driving-a-car">Energy use of canal boats compared to driving a car</h4>
+<p>Let’s say 10 boats are needed to assist in the city swim, we can calculate how many car-kM’s could be driven as equivalent to the power usage of boats. <span class="citation" data-cites="e-drivers_2020">(<a href="#ref-e-drivers_2020" role="doc-biblioref">Weerd 2023</a>)</span> <span class="citation" data-cites="whiltonmarina_2023">(<a href="#ref-whiltonmarina_2023" role="doc-biblioref">marina 2023</a>)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>yearly_car_consumption_kWh <span class="op">=</span> <span class="dv">7700</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>hours_boat_race <span class="op">=</span> <span class="dv">9</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>boat_diesel_usage <span class="op">=</span> <span class="dv">1</span> <span class="co">#litre per hour</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>num_boats <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>energy_density_diesel <span class="op">=</span> <span class="dv">45</span> <span class="co">#MJ/kg</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>conversion_rate_MJ_kWh <span class="op">=</span> <span class="fl">0.277778</span> <span class="co">#1 MJ = 0.277778 kWh</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>weight_diesel <span class="op">=</span> <span class="fl">0.84</span> <span class="co">#kg</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>kilos_diesel_used <span class="op">=</span> num_boats<span class="op">*</span>boat_diesel_usage<span class="op">*</span>weight_diesel<span class="op">*</span>hours_boat_race</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>energy_use_boats <span class="op">=</span> kilos_diesel_used<span class="op">*</span>energy_density_diesel<span class="op">*</span>conversion_rate_MJ_kWh</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>num_days_car_equivalent <span class="op">=</span> <span class="dv">365</span><span class="op">/</span>yearly_car_consumption_kWh<span class="op">*</span>energy_use_boats</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#print(liters_diesel_used)</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#print(energy_use_boats)</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The energy use of 10 boats during the city swim is equal to the average car energy consumption in"</span>,num_days_car_equivalent,<span class="st">"days."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="economic-feasibility-of-switching-canal-boats-to-clean-energy" class="level4">
 <h4 class="anchored" data-anchor-id="economic-feasibility-of-switching-canal-boats-to-clean-energy">Economic feasibility of switching canal boats to clean energy</h4>
@@ -429,17 +446,17 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <p>To make sure distressed swimmers can easily leave the water platforms are placed every 100m alongside the swimming route where quay walls make exiting the water difficult.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>MAX_DISTANCE_BETWEEN_LIFEGUARDS <span class="op">=</span> <span class="dv">50</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>NUM_SWIMMERS_PER_SUPPORT_BOAT <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve variables stored in other notebooks</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store <span class="op">-</span>r NUM_SWIMMERS_PER_WAVE</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store <span class="op">-</span>r LENGTH_OF_ROUTE</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>num_boats_required <span class="op">=</span> NUM_SWIMMERS_PER_WAVE <span class="op">/</span> NUM_SWIMMERS_PER_SUPPORT_BOAT</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>num_lifeguards_required <span class="op">=</span> LENGTH_OF_ROUTE <span class="op">/</span> MAX_DISTANCE_BETWEEN_LIFEGUARDS</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>num_lifeguard_canoes_required <span class="op">=</span> <span class="bu">max</span>(num_boats_required, num_lifeguards_required)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"No. of lifeguard canoes required = max(</span><span class="sc">{}</span><span class="st">, </span><span class="sc">{}</span><span class="st">) = </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(num_boats_required, num_lifeguards_required, num_lifeguard_canoes_required))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>MAX_DISTANCE_BETWEEN_LIFEGUARDS <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>NUM_SWIMMERS_PER_SUPPORT_BOAT <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve variables stored in other notebooks</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store <span class="op">-</span>r NUM_SWIMMERS_PER_WAVE</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store <span class="op">-</span>r LENGTH_OF_ROUTE</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>num_boats_required <span class="op">=</span> NUM_SWIMMERS_PER_WAVE <span class="op">/</span> NUM_SWIMMERS_PER_SUPPORT_BOAT</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>num_lifeguards_required <span class="op">=</span> LENGTH_OF_ROUTE <span class="op">/</span> MAX_DISTANCE_BETWEEN_LIFEGUARDS</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>num_lifeguard_canoes_required <span class="op">=</span> <span class="bu">max</span>(num_boats_required, num_lifeguards_required)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"No. of lifeguard canoes required = max(</span><span class="sc">{}</span><span class="st">, </span><span class="sc">{}</span><span class="st">) = </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(num_boats_required, num_lifeguards_required, num_lifeguard_canoes_required))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>No. of lifeguard canoes required = max(6.0, 100.0) = 100.0</code></pre>
 </div>
@@ -450,12 +467,12 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <h4 class="anchored" data-anchor-id="energy-requirements-for-support-boats">Energy requirements for support boats</h4>
 <p>100 canoes are used for the safety of swimmers, by using canoes instead of electric boats a lot of greenhouse gas emission is prevented. If we were to use electric boats electricity would have been used. Exactly how much energy we are saving by using canoes is calculated below.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>num_canoes <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>power_boat_kwh <span class="op">=</span> <span class="dv">20</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>time_race <span class="op">=</span> <span class="dv">7</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>power_use <span class="op">=</span> num_canoes<span class="op">*</span>power_boat_kwh<span class="op">*</span>time_race</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Used power by boats:'</span>,power_use, <span class="st">'kWh'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>num_canoes <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>power_boat_kwh <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>time_race <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>power_use <span class="op">=</span> num_canoes<span class="op">*</span>power_boat_kwh<span class="op">*</span>time_race</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Reduced power use of boats:'</span>,power_use, <span class="st">'kWh'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Used power by boats: 14000 kWh</code></pre>
 </div>
@@ -465,11 +482,11 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <h4 class="anchored" data-anchor-id="solar-panels-or-wind-turbines-required">Solar panels or wind turbines required</h4>
 <p>Assuming that solar panels would be rented and installed for a week to power the boats the amount of solar panels needed is calculated below. Numbers about efficiency of solar panels are found at <span class="citation" data-cites="Voltasolar_2023">(<a href="#ref-Voltasolar_2023" role="doc-biblioref">Voltasolar 2023</a>)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>wp_sp <span class="op">=</span> <span class="dv">365</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>kWh_year <span class="op">=</span> wp_sp <span class="op">*</span><span class="fl">0.85</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>kWh_week <span class="op">=</span> kWh_year<span class="op">/</span><span class="dv">52</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>sp_needed <span class="op">=</span> power_use<span class="op">/</span>kWh_week</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of solar panels needed:'</span>, <span class="bu">int</span>(sp_needed)<span class="op">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>wp_sp <span class="op">=</span> <span class="dv">365</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>kWh_year <span class="op">=</span> wp_sp <span class="op">*</span><span class="fl">0.85</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>kWh_week <span class="op">=</span> kWh_year<span class="op">/</span><span class="dv">52</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sp_needed <span class="op">=</span> power_use<span class="op">/</span>kWh_week</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of solar panels needed:'</span>, <span class="bu">int</span>(sp_needed)<span class="op">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of solar panels needed: 2347</code></pre>
 </div>
@@ -485,7 +502,7 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>The swim meet is proposed to be conducted from 07:00 to 15:00 pm, with the following route:</p>
+<p>The swim meet is proposed to be conducted from 06:00 to 15:00 pm, with the following route:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/Ams Canal Speeds-Layout1-16.jpg" class="img-fluid figure-img"></p>
@@ -500,6 +517,9 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-JUTTNER19951976" class="csl-entry" role="listitem">
 Jüttner, Friedrich, Diedrich Backhaus, Uwe Matthias, Ulf Essers, Rolf Greiner, and Bernd Mahr. 1995. <span>“Emissions of Two- and Four-Stroke Outboard Engines—i. Quantification of Gases and VOC.”</span> <em>Water Research</em> 29 (8): 1976–82. https://doi.org/<a href="https://doi.org/10.1016/0043-1354(94)00330-A">https://doi.org/10.1016/0043-1354(94)00330-A</a>.
+</div>
+<div id="ref-whiltonmarina_2023" class="csl-entry" role="listitem">
+marina, whilton. 2023. <span>“Fuel.”</span> <em>Whiltonmarina.co.uk</em>. <a href="https://www.whiltonmarina.co.uk/useful-info/narrowboat-basics.aspx#:~:text=The%20average%20gas%20system%20consumes,litre%20per%20hour%20of%20cruising.">https://www.whiltonmarina.co.uk/useful-info/narrowboat-basics.aspx#:~:text=The%20average%20gas%20system%20consumes,litre%20per%20hour%20of%20cruising.</a>
 </div>
 <div id="ref-propel_why_2022" class="csl-entry" role="listitem">
 Propel. 2022. <span>“Why <span>Amsterdam</span> Is a Perfect Example of Cities Going Carbon-Neutral.”</span> <em>Why Amsterdam Is a Perfect Example of Cities Going Carbon-Neutral</em>. <a href="https://propel.me/nl/article/why-amsterdam-is-a-perfect-example-of-cities-going-carbon-neutral/">https://propel.me/nl/article/why-amsterdam-is-a-perfect-example-of-cities-going-carbon-neutral/</a>.
@@ -521,6 +541,9 @@ Triathlon, British. n.d. <span>“Open <span>Water</span> <span>Swimming</span> 
 </div>
 <div id="ref-Voltasolar_2023" class="csl-entry" role="listitem">
 Voltasolar. 2023. <span>“Opbrengst van Zonnepanelen Berekenen.”</span> <em>Why Amsterdam Is a Perfect Example of Cities Going Carbon-Neutral</em>. <a href="https://voltasolar.nl/kenniscentrum/financieel/zonnepanelen-opbrengst/#:~:text=De%20afmetingen%20van%20een%20zonnepaneel,gemiddeld%20365%20Wp%20per%20zonnepaneel.">https://voltasolar.nl/kenniscentrum/financieel/zonnepanelen-opbrengst/#:~:text=De%20afmetingen%20van%20een%20zonnepaneel,gemiddeld%20365%20Wp%20per%20zonnepaneel.</a>
+</div>
+<div id="ref-e-drivers_2020" class="csl-entry" role="listitem">
+Weerd, Bas van der. 2023. <span>“Een Rekensommetje Dat Veel Duidelijk Maakte.”</span> <em>E-Drivers.com</em>. <a href="https://e-drivers.com/een-rekensommetje-dat-veel-duidelijk-maakte-column-door-bas-van-der-weerd/#:~:text=Een%20snelle%20blik%20op%20Wikipedia,kWh%20die%20een%20EV%20gebruikt.">https://e-drivers.com/een-rekensommetje-dat-veel-duidelijk-maakte-column-door-bas-van-der-weerd/#:~:text=Een%20snelle%20blik%20op%20Wikipedia,kWh%20die%20een%20EV%20gebruikt.</a>
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
