@@ -329,28 +329,29 @@ div.csl-indent {
 <li>We plan for around 3000 swimmers for the swim meet, similar to the Amsterdam City Swim. <span class="citation" data-cites="amsterdam_city_swim_swim_nodate">(<a href="#ref-amsterdam_city_swim_swim_nodate" role="doc-biblioref">Swim n.d.</a>)</span></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LENGTH_OF_ROUTE <span class="op">=</span> <span class="dv">5000</span> <span class="co"># in meters</span></span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LENGTH_OF_ROUTE <span class="op">=</span> <span class="dv">5000</span>  <span class="co"># in meters</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>NUM_SWIMMERS_PER_WAVE <span class="op">=</span> <span class="dv">120</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>num_swimmers <span class="op">=</span> <span class="dv">3000</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>speed_swimmers_kmh <span class="op">=</span> <span class="dv">8</span> </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>time_between_waves <span class="op">=</span> <span class="dv">20</span> <span class="co">#minutes</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>speed_swimmers_kmh <span class="op">=</span> <span class="dv">8</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>time_between_waves <span class="op">=</span> <span class="dv">20</span>  <span class="co"># minutes</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># save variable so it can be accessed from other notebooks</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  save variable so it can be accessed from other notebooks</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store LENGTH_OF_ROUTE</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store num_swimmers</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store NUM_SWIMMERS_PER_WAVE</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>store speed_swimmers_kmh</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>speed_swimmers_ms <span class="op">=</span> speed_swimmers_kmh <span class="op">*</span><span class="dv">1000</span> <span class="op">/</span> (<span class="dv">60</span><span class="op">*</span><span class="dv">60</span>)</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>num_waves <span class="op">=</span> num_swimmers<span class="op">/</span>NUM_SWIMMERS_PER_WAVE</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>sec_per_wave <span class="op">=</span> LENGTH_OF_ROUTE<span class="op">/</span>speed_swimmers_ms</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>min_per_wave <span class="op">=</span> sec_per_wave<span class="op">/</span><span class="dv">60</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>speed_swimmers_ms <span class="op">=</span> speed_swimmers_kmh <span class="op">*</span> <span class="dv">1000</span> <span class="op">/</span> (<span class="dv">60</span><span class="op">*</span><span class="dv">60</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>num_waves <span class="op">=</span> num_swimmers <span class="op">/</span> NUM_SWIMMERS_PER_WAVE</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>sec_per_wave <span class="op">=</span> LENGTH_OF_ROUTE <span class="op">/</span> speed_swimmers_ms</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>min_per_wave <span class="op">=</span> sec_per_wave <span class="op">/</span> <span class="dv">60</span></span>
 <span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>duration_swim_min <span class="op">=</span> min_per_wave <span class="op">+</span> (num_waves <span class="op">*</span> time_between_waves)</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>duration_swim_hours <span class="op">=</span> duration_swim_min<span class="op">/</span><span class="dv">60</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>duration_swim_hours <span class="op">=</span> duration_swim_min <span class="op">/</span> <span class="dv">60</span></span>
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> <span class="fl">15.00</span></span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> end_time <span class="op">-</span> duration_swim_hours</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The start time for the first wave of swimmers is"</span>, <span class="bu">int</span>(start_time),<span class="st">":00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The start time for the first wave of swimmers is"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>      <span class="bu">int</span>(start_time),<span class="st">":00"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Stored 'NUM_SWIMMERS_PER_WAVE' (int)
 Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
@@ -369,19 +370,20 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>yearly_car_consumption_kWh <span class="op">=</span> <span class="dv">7700</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>hours_boat_race <span class="op">=</span> <span class="dv">9</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>boat_diesel_usage <span class="op">=</span> <span class="dv">1</span> <span class="co">#litre per hour</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>boat_diesel_usage <span class="op">=</span> <span class="dv">1</span>  <span class="co"># litre per hour</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>num_boats <span class="op">=</span> <span class="dv">10</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>energy_density_diesel <span class="op">=</span> <span class="dv">45</span> <span class="co">#MJ/kg</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>conversion_rate_MJ_kWh <span class="op">=</span> <span class="fl">0.277778</span> <span class="co">#1 MJ = 0.277778 kWh</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>weight_diesel <span class="op">=</span> <span class="fl">0.84</span> <span class="co">#kg</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>energy_density_diesel <span class="op">=</span> <span class="dv">45</span>  <span class="co"># MJ/kg</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>conversion_rate_MJ_kWh <span class="op">=</span> <span class="fl">0.277778</span>  <span class="co"># 1 MJ = 0.277778 kWh</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>weight_diesel <span class="op">=</span> <span class="fl">0.84</span>  <span class="co"># kg</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>kilos_diesel_used <span class="op">=</span> num_boats<span class="op">*</span>boat_diesel_usage<span class="op">*</span>weight_diesel<span class="op">*</span>hours_boat_race</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>energy_use_boats <span class="op">=</span> kilos_diesel_used<span class="op">*</span>energy_density_diesel<span class="op">*</span>conversion_rate_MJ_kWh</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>num_days_car_equivalent <span class="op">=</span> <span class="dv">365</span><span class="op">/</span>yearly_car_consumption_kWh<span class="op">*</span>energy_use_boats</span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">#print(liters_diesel_used)</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co">#print(energy_use_boats)</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The energy use of 10 boats during the city swim is equal to the average car energy consumption in"</span>,num_days_car_equivalent,<span class="st">"days."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># print(liters_diesel_used)</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># print(energy_use_boats)</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The energy use of 10 boats during the city swim is equal to the </span><span class="ch">\</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="st">      average car energy consumption in"</span>,num_days_car_equivalent,<span class="st">"days."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="economic-feasibility-of-switching-canal-boats-to-clean-energy" class="level4">
@@ -456,7 +458,9 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>num_lifeguards_required <span class="op">=</span> LENGTH_OF_ROUTE <span class="op">/</span> MAX_DISTANCE_BETWEEN_LIFEGUARDS</span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>num_lifeguard_canoes_required <span class="op">=</span> <span class="bu">max</span>(num_boats_required, num_lifeguards_required)</span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"No. of lifeguard canoes required = max(</span><span class="sc">{}</span><span class="st">, </span><span class="sc">{}</span><span class="st">) = </span><span class="sc">{}</span><span class="st">"</span>.<span class="bu">format</span>(num_boats_required, num_lifeguards_required, num_lifeguard_canoes_required))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"No. of lifeguard canoes required = max(</span><span class="sc">{}</span><span class="st">, </span><span class="sc">{}</span><span class="st">) = </span><span class="sc">{}</span><span class="st">"</span>.</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>      <span class="bu">format</span>(num_boats_required, num_lifeguards_required,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>             num_lifeguard_canoes_required))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>No. of lifeguard canoes required = max(6.0, 100.0) = 100.0</code></pre>
 </div>
@@ -471,8 +475,8 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>power_boat_kwh <span class="op">=</span> <span class="dv">20</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>time_race <span class="op">=</span> <span class="dv">7</span></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>power_use <span class="op">=</span> num_canoes<span class="op">*</span>power_boat_kwh<span class="op">*</span>time_race</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Reduced power use of boats:'</span>,power_use, <span class="st">'kWh'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>power_use <span class="op">=</span> num_canoes <span class="op">*</span> power_boat_kwh <span class="op">*</span> time_race</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Reduced power use of boats:'</span>, power_use, <span class="st">'kWh'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Used power by boats: 14000 kWh</code></pre>
 </div>
@@ -483,10 +487,10 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <p>Assuming that solar panels would be rented and installed for a week to power the boats the amount of solar panels needed is calculated below. Numbers about efficiency of solar panels are found at <span class="citation" data-cites="Voltasolar_2023">(<a href="#ref-Voltasolar_2023" role="doc-biblioref">Voltasolar 2023</a>)</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>wp_sp <span class="op">=</span> <span class="dv">365</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>kWh_year <span class="op">=</span> wp_sp <span class="op">*</span><span class="fl">0.85</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>kWh_week <span class="op">=</span> kWh_year<span class="op">/</span><span class="dv">52</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sp_needed <span class="op">=</span> power_use<span class="op">/</span>kWh_week</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of solar panels needed:'</span>, <span class="bu">int</span>(sp_needed)<span class="op">+</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>kWh_year <span class="op">=</span> wp_sp <span class="op">*</span> <span class="fl">0.85</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>kWh_week <span class="op">=</span> kWh_year <span class="op">/</span> <span class="dv">52</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>sp_needed <span class="op">=</span> power_use <span class="op">/</span> kWh_week</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of solar panels needed:'</span>, <span class="bu">int</span>(sp_needed) <span class="op">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of solar panels needed: 2347</code></pre>
 </div>
@@ -495,17 +499,17 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>area_circle <span class="op">=</span>  <span class="fl">2347.0</span><span class="op">*</span><span class="fl">1.65</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">#surface = 3.14*r^2</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> math.sqrt(area_circle<span class="op">/</span><span class="fl">3.14</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>diameter <span class="op">=</span> <span class="dv">2</span><span class="op">*</span>r</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>area_circle <span class="op">=</span> <span class="fl">2347.0</span> <span class="op">*</span> <span class="fl">1.65</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># surface = 3.14 * r^2</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> math.sqrt(area_circle <span class="op">/</span> <span class="fl">3.14</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>diameter <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> r</span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The diameter of the floating solar panels is"</span>, diameter, <span class="st">"m"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The circle needs to have a diameter of about 70m, this fits in the water close to the marine terrain as shown on the picture below.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="energy_files/figure-html/11745a19-1-diameter solar.JPG" class="img-fluid figure-img"></p>
+<p><img src="energy_files/figure-html/2c762a28-1-diameter solar.JPG" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">diameter solar.JPG</figcaption>
 </figure>
 </div>
