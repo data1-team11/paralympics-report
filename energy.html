@@ -479,8 +479,8 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 </div>
 </div>
 </section>
-<section id="solar-panels-or-wind-turbines-required" class="level4">
-<h4 class="anchored" data-anchor-id="solar-panels-or-wind-turbines-required">Solar panels or wind turbines required</h4>
+<section id="solar-panels-required" class="level4">
+<h4 class="anchored" data-anchor-id="solar-panels-required">Solar panels required</h4>
 <p>Assuming that solar panels would be rented and installed for a week to power the boats the amount of solar panels needed is calculated below. Numbers about efficiency of solar panels are found at <span class="citation" data-cites="Voltasolar_2023">(<a href="#ref-Voltasolar_2023" role="doc-biblioref">Voltasolar 2023</a>)</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>wp_sp <span class="op">=</span> <span class="dv">365</span></span>
@@ -492,7 +492,7 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <pre><code>Number of solar panels needed: 2347</code></pre>
 </div>
 </div>
-<p>If the city were to actually use electrified boats the solar panels that are needed to harvest the energy could be placed on the water. <span class="citation" data-cites="floatingsolar">(<a href="#ref-floatingsolar" role="doc-biblioref"><strong>floatingsolar?</strong></a>)</span> has a circular system that floats. The size of the floating solar field is calculated below.</p>
+<p>If the city were to actually use electrified boats the solar panels that are needed to harvest the energy could be placed on the water. <span class="citation" data-cites="floatingsolar">(<a href="#ref-floatingsolar" role="doc-biblioref">floatingsolar 2023</a>)</span> has a circular system that floats. The size of the floating solar field is calculated below.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -504,7 +504,12 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"The diameter of the floating solar panels is"</span>, diameter, <span class="st">"m"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The circle needs to have a diameter of about 70m, this fits in the water close to the marine terrain as shown on the picture below.</p>
-<p><a href="attachment:diameter%20solar.JPG">diameter solar.JPG</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="energy_files/figure-html/49e3b746-1-diameter solar.JPG" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">diameter solar.JPG</figcaption>
+</figure>
+</div>
 </section>
 </section>
 </section>
@@ -528,6 +533,9 @@ Stored 'LENGTH_OF_ROUTE' (int)</code></pre>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-floatingsolar" class="csl-entry" role="listitem">
+floatingsolar. 2023. <span>“Our Product.”</span> <em>Floatingsolar.nl</em>. <a href="https://www.floatingsolar.nl/en/our-product/">https://www.floatingsolar.nl/en/our-product/</a>.
+</div>
 <div id="ref-JUTTNER19951976" class="csl-entry" role="listitem">
 Jüttner, Friedrich, Diedrich Backhaus, Uwe Matthias, Ulf Essers, Rolf Greiner, and Bernd Mahr. 1995. <span>“Emissions of Two- and Four-Stroke Outboard Engines—i. Quantification of Gases and VOC.”</span> <em>Water Research</em> 29 (8): 1976–82. https://doi.org/<a href="https://doi.org/10.1016/0043-1354(94)00330-A">https://doi.org/10.1016/0043-1354(94)00330-A</a>.
 </div>
