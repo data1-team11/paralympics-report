@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Team 11 – airbnb_listings_jj</title>
+<title>Team 11 - Note:</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -154,12 +154,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#assignment-3-housing" id="toc-assignment-3-housing" class="nav-link active" data-scroll-target="#assignment-3-housing">Assignment 3: Housing</a>
+  <ul class="collapse">
+  <li><a href="#preliminary-data" id="toc-preliminary-data" class="nav-link" data-scroll-target="#preliminary-data">Preliminary Data</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code:</a></li>
+  <li><a href="#plot-the-amount-of-airbnb-locaons-per-neighbourhood." id="toc-plot-the-amount-of-airbnb-locaons-per-neighbourhood." class="nav-link" data-scroll-target="#plot-the-amount-of-airbnb-locaons-per-neighbourhood.">2. Plot the amount of AirBnB loca�ons per neighbourhood.</a></li>
+  <li><a href="#pseudocode-1" id="toc-pseudocode-1" class="nav-link" data-scroll-target="#pseudocode-1">Pseudocode</a></li>
+  <li><a href="#which-street-in-amsterdam-has-the-most-airbnb-apartments" id="toc-which-street-in-amsterdam-has-the-most-airbnb-apartments" class="nav-link" data-scroll-target="#which-street-in-amsterdam-has-the-most-airbnb-apartments">3: Which street in Amsterdam has the most AirBnB apartments?</a></li>
+  <li><a href="#pseudocode-2" id="toc-pseudocode-2" class="nav-link" data-scroll-target="#pseudocode-2">Pseudocode</a></li>
+  <li><a href="#try-to-cross-reference-the-data-from-the-airbnb-dataset-with-the-bbga.-can-you-figure-out-if-all-apartments-of-airbnb-are-designated-as-housing-which-number-of-apartments-are-not-rented-out-all-the-time-but-are-also-used-as-normal-housing" id="toc-try-to-cross-reference-the-data-from-the-airbnb-dataset-with-the-bbga.-can-you-figure-out-if-all-apartments-of-airbnb-are-designated-as-housing-which-number-of-apartments-are-not-rented-out-all-the-time-but-are-also-used-as-normal-housing" class="nav-link" data-scroll-target="#try-to-cross-reference-the-data-from-the-airbnb-dataset-with-the-bbga.-can-you-figure-out-if-all-apartments-of-airbnb-are-designated-as-housing-which-number-of-apartments-are-not-rented-out-all-the-time-but-are-also-used-as-normal-housing">4. Try to cross reference the data from the AirBnB dataset with the BBGA. Can you figure out if all apartments of AirBnB are designated as housing? Which number of apartments are not rented out all the time but are also used as normal housing?</a></li>
+  <li><a href="#how-many-hotel-rooms-should-be-built-if-amsterdam-wants-to-accommodate-the-same-number-of-tourists" id="toc-how-many-hotel-rooms-should-be-built-if-amsterdam-wants-to-accommodate-the-same-number-of-tourists" class="nav-link" data-scroll-target="#how-many-hotel-rooms-should-be-built-if-amsterdam-wants-to-accommodate-the-same-number-of-tourists">5. How many hotel rooms should be built if Amsterdam wants to accommodate the same number of tourists?</a></li>
+  <li><a href="#how-many-different-licenses-are-issued" id="toc-how-many-different-licenses-are-issued" class="nav-link" data-scroll-target="#how-many-different-licenses-are-issued">6. How many different licenses are issued?</a></li>
+  <li><a href="#results-analysis" id="toc-results-analysis" class="nav-link" data-scroll-target="#results-analysis">Results analysis:</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/data1-team11/paralympics-report/blob/main/airbnb_listings_JJ.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/data1-team11/paralympics-report/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Note:</h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
 
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span>
@@ -168,11 +201,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>bibliography: references.bib</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="op">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Note: before running this notebook, please download <a href="http://data.insideairbnb.com/the-netherlands/north-holland/amsterdam/2023-09-03/data/listings.csv.gz">listings.csv.gz</a> and place the extracted <code>listings.csv</code> in the <code>data</code> directory.</p>
-<p>tax hotels = 7% of turnover + 3 euros per room tax airbnb = 10% = 3 euros number of visitors = 30000 max profit = all visitors airbnb (depends on price) min profit = all visitors hotels (depends on price)</p>
-<p>from airbnb listings: discard listings with minimum stays of more than 7 nights #check sum the total ammount of people that fit the remaining airbnbs accomodate (19812) calculate average price of accomodation remaining listings for the remaining visitors (11188) they will stay in hotels average of 2.2 beds per room divide the number of rooms between the remaining tourists</p>
-<p>multiply number of available beds to average price</p>
-<p>sum airbnb + hotels taxes accordingly</p>
+<p>Before running this notebook, please download <a href="http://data.insideairbnb.com/the-netherlands/north-holland/amsterdam/2023-09-03/data/listings.csv.gz">listings.csv.gz</a> and place the extracted <code>listings.csv</code> in the <code>data</code> directory.</p>
+<section id="assignment-3-housing" class="level1">
+<h1>Assignment 3: Housing</h1>
+<section id="preliminary-data" class="level3">
+<h3 class="anchored" data-anchor-id="preliminary-data">Preliminary Data</h3>
+<section id="the-following-infomation-was-found-prior-to-the-start-of-the-assignment-in-order-to-use-it." class="level4">
+<h4 class="anchored" data-anchor-id="the-following-infomation-was-found-prior-to-the-start-of-the-assignment-in-order-to-use-it.">The following infomation was found prior to the start of the assignment in order to use it.</h4>
+<p>tax hotels = 7% of turnover + 3 euros per room tax airbnb = 10% = 3 euros number of visitors = 30000</p>
+<p>Library imports and DataFrame generation</p>
 <div class="cell" data-tags="[]" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -184,74 +221,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>listings.close()</span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"./data/listings.csv"</span>,encoding<span class="op">=</span><span class="st">'latin1'</span>)</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#ok_listings = pd.DataFrame(df.columns)</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df.columns)</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df.columns[34])</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df.maximum_nights)</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">#we discard listings with minimum stays of more than 7 nights</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>ok_listings <span class="op">=</span> df[(df[<span class="st">'minimum_nights'</span>] <span class="op">&lt;</span> <span class="dv">8</span>)].copy()</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co">#we check that all numeric values in our DataFrame sum</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> ok_listings.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>,numeric_only<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">#we sum individually the column 'accommodates' so we can retrieve the number of people who can stay in the </span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>no_ppl <span class="op">=</span> ok_listings.accommodates.<span class="bu">sum</span>()</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Airbnb listings with at most 7 days of minimal nights :'</span>, no_ppl)</span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co">#print(test) success</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>tourists <span class="op">=</span> <span class="dv">30000</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>tourists_hotel <span class="op">=</span> tourists<span class="op">-</span>no_ppl</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of people who needs to stay in hotel rooms'</span>,<span class="st">': '</span>, tourists_hotel)</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">#print(ok_listings)</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">#Average cost of overnight accommodation in Amsterdam in the Netherlands from January 2019 to June 2023</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">##https://www.statista.com/statistics/614061/overnight-accommodation-costs-amsterdam-city/</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>hotel_price_per_night <span class="op">=</span> <span class="dv">294</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co">#https://www.cbs.nl/en-gb/figures/detail/84040ENG</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co">#Hotels; capacity, type of accommodation, beds, star rating</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>hotel_rooms_ams <span class="op">=</span> <span class="dv">41840</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>hotel_beds_ams <span class="op">=</span> <span class="dv">90918</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>avg_beds_per_room <span class="op">=</span> hotel_beds_ams<span class="op">/</span>hotel_rooms_ams</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="co">#print(avg_beds_per_room)</span></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of hotel rooms used by tourists who don't fit in airbnbs</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>no_hotel_rooms_used <span class="op">=</span> tourists_hotel<span class="op">/</span>avg_beds_per_room</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>revenue_hotels <span class="op">=</span> no_hotel_rooms_used<span class="op">*</span>hotel_price_per_night</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>tax_hotels <span class="op">=</span> revenue_hotels <span class="op">*</span> <span class="fl">0.07</span> <span class="op">+</span> no_hotel_rooms_used <span class="op">*</span> <span class="dv">3</span></span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="co">#getting rid of $ signs in column</span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>new_price <span class="op">=</span> df[<span class="st">'price'</span>].<span class="bu">str</span>.<span class="bu">slice</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>)</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="co">#adding new_price as a column in our dataframe</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>ok_listings[<span class="st">'new_price'</span>] <span class="op">=</span> new_price</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a><span class="co">#converting new column values to float so we can math it up =P</span></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>ok_listings[<span class="st">'new_price'</span>] <span class="op">=</span> ok_listings[<span class="st">'new_price'</span>].astype(<span class="bu">float</span>)</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a><span class="co">#calculating total revenue of airbnb by summing all location price per night and then times 7 (number of days in a week)</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>revenue_airbnb <span class="op">=</span> ok_listings.new_price.<span class="bu">sum</span>()<span class="op">*</span><span class="dv">7</span></span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>tax_airbnb <span class="op">=</span> <span class="bu">float</span>(revenue_airbnb)<span class="op">*</span><span class="fl">.1</span> <span class="op">+</span> <span class="bu">float</span>(<span class="bu">len</span>(new_price)<span class="op">*</span><span class="dv">3</span>)</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Total tax revenue from Airbnb locations $'</span>, tax_airbnb)</span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Total tax revenue from hotel rooms $'</span>,tax_hotels)</span>
-<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>total_revenue <span class="op">=</span> tax_airbnb <span class="op">+</span> tax_hotels</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Total tax revenue gathered for the government'</span>, total_revenue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"./data/listings.csv"</span>,encoding<span class="op">=</span><span class="st">'latin1'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of Airbnb listings with at most 7 days of minimal nights : 23407
 Number of people who needs to stay in hotel rooms :  6593
@@ -260,13 +230,113 @@ Total tax revenue from hotel rooms $ 71543.25226687785
 Total tax revenue gathered for the government 1540904.152266878</code></pre>
 </div>
 </div>
-<p>Filter from dataframe the locations of airbnb Gather the different categories inside the column neighourhood Sum each category inside neighbourhood</p>
+</section>
+<section id="what-amsterdam-will-receive-from-tourist-tax-if-the-event-lasts-a-week-and-you-will-have-30.000-visitors" class="level4">
+<h4 class="anchored" data-anchor-id="what-amsterdam-will-receive-from-tourist-tax-if-the-event-lasts-a-week-and-you-will-have-30.000-visitors">1. What Amsterdam will receive from tourist tax if the event lasts a week and you will have 30.000 visitors?</h4>
+</section>
+<section id="pseudocode" class="level4">
+<h4 class="anchored" data-anchor-id="pseudocode">Pseudocode</h4>
+<ol type="1">
+<li>Discard listings with minimum stays of more than 7 nights</li>
+<li>Sum the total ammount of people that fit the remaining airbnbs accomodate (#19812)</li>
+<li>Calculate average price of accomodation remaining listings</li>
+<li>for the remaining visitors (11188) they will stay in hotels –&gt; average of 2.2 beds per room</li>
+<li>Divide the number of rooms between the remaining tourists</li>
+<li>Multiply number of available beds to average price</li>
+<li>Sum airbnb + hotels taxes accordingly</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Gathering information shortcuts:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co">#ok_listings = pd.DataFrame(df.columns)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df.columns)</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df.columns[34])</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df.maximum_nights)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="code" class="level3">
+<h3 class="anchored" data-anchor-id="code">Code:</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we discard listings with minimum stays of more than 7 nights</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ok_listings <span class="op">=</span> df[(df[<span class="st">'minimum_nights'</span>] <span class="op">&lt;</span> <span class="dv">8</span>)].copy()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#we check that all numeric values in our DataFrame sum</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>test <span class="op">=</span> ok_listings.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>,numeric_only<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#we sum individually the column 'accommodates' so we can retrieve the number of people who can stay </span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>no_ppl <span class="op">=</span> ok_listings.accommodates.<span class="bu">sum</span>()</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Airbnb listings with at most 7 days of minimal nights :'</span>, no_ppl)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">#print(test) success</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>tourists <span class="op">=</span> <span class="dv">30000</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>tourists_hotel <span class="op">=</span> tourists<span class="op">-</span>no_ppl</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of people who needs to stay in hotel rooms'</span>,<span class="st">': '</span>, tourists_hotel)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co">#print(ok_listings)</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co">#Average cost of overnight accommodation in Amsterdam in the Netherlands from January 2019 to June 2023</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="co">##https://www.statista.com/statistics/614061/overnight-accommodation-costs-amsterdam-city/</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>hotel_price_per_night <span class="op">=</span> <span class="dv">294</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#https://www.cbs.nl/en-gb/figures/detail/84040ENG</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co">#Hotels; capacity, type of accommodation, beds, star rating</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>hotel_rooms_ams <span class="op">=</span> <span class="dv">41840</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>hotel_beds_ams <span class="op">=</span> <span class="dv">90918</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>avg_beds_per_room <span class="op">=</span> hotel_beds_ams<span class="op">/</span>hotel_rooms_ams</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="co">#print(avg_beds_per_room)</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of hotel rooms used by tourists who don't fit in airbnbs</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>no_hotel_rooms_used <span class="op">=</span> tourists_hotel<span class="op">/</span>avg_beds_per_room</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>revenue_hotels <span class="op">=</span> no_hotel_rooms_used<span class="op">*</span>hotel_price_per_night</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>tax_hotels <span class="op">=</span> revenue_hotels <span class="op">*</span> <span class="fl">0.07</span> <span class="op">+</span> no_hotel_rooms_used <span class="op">*</span> <span class="dv">3</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="co">#getting rid of $ signs in column</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>new_price <span class="op">=</span> df[<span class="st">'price'</span>].<span class="bu">str</span>.<span class="bu">slice</span>(<span class="dv">1</span>,<span class="op">-</span><span class="dv">1</span>)</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="co">#adding new_price as a column in our dataframe</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>ok_listings[<span class="st">'new_price'</span>] <span class="op">=</span> new_price</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="co">#converting new column values to float so we can math it up =P</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>ok_listings[<span class="st">'new_price'</span>] <span class="op">=</span> ok_listings[<span class="st">'new_price'</span>].astype(<span class="bu">float</span>)</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="co">#calculating total revenue of airbnb by summing all location price per night and then times 7 (number of days in a week)</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>revenue_airbnb <span class="op">=</span> ok_listings.new_price.<span class="bu">sum</span>()<span class="op">*</span><span class="dv">7</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>tax_airbnb <span class="op">=</span> <span class="bu">float</span>(revenue_airbnb)<span class="op">*</span><span class="fl">.1</span> <span class="op">+</span> <span class="bu">float</span>(<span class="bu">len</span>(new_price)<span class="op">*</span><span class="dv">3</span>)</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Total tax revenue from Airbnb locations $'</span>, tax_airbnb)</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Total tax revenue from hotel rooms $'</span>,tax_hotels)</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>total_revenue <span class="op">=</span> tax_airbnb <span class="op">+</span> tax_hotels</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Total tax revenue gathered for the government'</span>, total_revenue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="plot-the-amount-of-airbnb-locaons-per-neighbourhood." class="level3">
+<h3 class="anchored" data-anchor-id="plot-the-amount-of-airbnb-locaons-per-neighbourhood.">2. Plot the amount of AirBnB loca�ons per neighbourhood.</h3>
+</section>
+<section id="pseudocode-1" class="level3">
+<h3 class="anchored" data-anchor-id="pseudocode-1">Pseudocode</h3>
+<ol type="1">
+<li>Filter from dataframe the locations of airbnb</li>
+<li>Gather the different categories inside the column neighourhood</li>
+<li>Sum each category inside neighbourhood</li>
+</ol>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#It can't get mpre efficient than this</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Airbnb listings per neighbourhood:'</span>, ok_listings.neighbourhood_cleansed.value_counts())</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>figure <span class="op">=</span> px.bar(ok_listings[neighbourhood].value_counts, x<span class="op">=</span><span class="st">'neighbourhood'</span>, y<span class="op">=</span><span class="st">'number'</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>figure.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#It can't get mpre efficient than this</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Airbnb listings per neighbourhood:'</span>, ok_listings.neighbourhood_cleansed.value_counts())</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>figure <span class="op">=</span> px.bar(ok_listings[neighbourhood].value_counts, x<span class="op">=</span><span class="st">'neighbourhood'</span>, y<span class="op">=</span><span class="st">'number'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>figure.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of Airbnb listings per neighbourhood: neighbourhood_cleansed
 De Baarsjes - Oud-West                    1329
@@ -297,85 +367,126 @@ Name: count, dtype: int64</code></pre>
 <pre><code>NameError: name 'neighbourhood' is not defined</code></pre>
 </div>
 </div>
+</section>
+<section id="which-street-in-amsterdam-has-the-most-airbnb-apartments" class="level3">
+<h3 class="anchored" data-anchor-id="which-street-in-amsterdam-has-the-most-airbnb-apartments">3: Which street in Amsterdam has the most AirBnB apartments?</h3>
+</section>
+<section id="pseudocode-2" class="level3">
+<h3 class="anchored" data-anchor-id="pseudocode-2">Pseudocode</h3>
+<ol type="1">
+<li>Find the locations of airbnb through lat and long.</li>
+<li>Add the street category to the DataFrame.</li>
+<li>Gather the different categories inside the column Street.</li>
+<li>Sum each category per street filter.</li>
+</ol>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pip install geopy</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> certifi</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ssl</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopy.geocoders</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geopy.geocoders</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> Nominatim, Photon</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Workaround to fix SSL certififcate expired error on some laptops</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution taken from https://stackoverflow.com/a/50665487</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Error message:</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   GeocoderUnavailable: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): </span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Max retries exceeded with url: /reverse?lat=52.40164&amp;lon=4.95106&amp;format=json&amp;addressdetails=1 </span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] </span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   certificate verify failed: certificate has expired (_ssl.c:1006)')))</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>ctx <span class="op">=</span> ssl.create_default_context(cafile<span class="op">=</span>certifi.where())</span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>geopy.geocoders.options.default_ssl_context <span class="op">=</span> ctx</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>geolocator <span class="op">=</span> Photon(user_agent<span class="op">=</span><span class="st">'geoapiExercises'</span>)</span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co">#print(ok_listings.columns)</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co">#New dataframe with only 3 parameters</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb <span class="op">=</span> ok_listings[[<span class="st">'latitude'</span>, <span class="st">'longitude'</span>]]</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'longitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'longitude'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>,<span class="st">''</span>)</span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.longitude <span class="op">=</span> (geolocs_airbnb.longitude.<span class="bu">str</span>[:<span class="dv">1</span>] <span class="op">+</span> <span class="st">'.'</span> <span class="op">+</span> geolocs_airbnb.longitude.<span class="bu">str</span>[<span class="dv">1</span>:])<span class="co">#.astype(float)</span></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co"># print(geolocs_airbnb.longitude)</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'latitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'latitude'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>,<span class="st">''</span>)</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.latitude <span class="op">=</span> (geolocs_airbnb.latitude.<span class="bu">str</span>[:<span class="dv">2</span>] <span class="op">+</span> <span class="st">'.'</span> <span class="op">+</span> geolocs_airbnb.latitude.<span class="bu">str</span>[<span class="dv">2</span>:])<span class="co">#.astype(float)</span></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="co">#print(type(geolocs_airbnb.latitude[5]))</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="co">#print(longitude)</span></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="co">#print(geolocs_airbnb)</span></span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(geolocs_airbnb))</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(geolocs_airbnb)):</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>    latitude, longitude <span class="op">=</span> geolocs_airbnb.iloc[i][<span class="st">'latitude'</span>],geolocs_airbnb.iloc[i][<span class="st">'longitude'</span>]</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>latitude<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>longitude<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>    location <span class="op">=</span> geolocator.reverse((latitude, longitude), timeout<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>        street <span class="op">=</span> location.raw[<span class="st">'address'</span>][<span class="st">'road'</span>]</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>        geolocs_airbnb.loc[i, <span class="st">'street'</span>] <span class="op">=</span> street</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.head()</span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="co">#adding street as a column in our dataframe</span></span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'street'</span>] <span class="op">=</span> street</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pip install geopy</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> certifi</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> ssl</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopy.geocoders</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geopy.geocoders</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> Nominatim, Photon</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Workaround to fix SSL certififcate expired error on some laptops</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Solution taken from https://stackoverflow.com/a/50665487</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Error message:</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   GeocoderUnavailable: HTTPSConnectionPool(host='nominatim.openstreetmap.org', port=443): </span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="co">#   Max retries exceeded with url: /reverse?lat=52.40164&amp;lon=4.95106&amp;format=json&amp;addressdetails=1 </span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="co">#   (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] </span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="co">#   certificate verify failed: certificate has expired (_ssl.c:1006)')))</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>ctx <span class="op">=</span> ssl.create_default_context(cafile<span class="op">=</span>certifi.where())</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>geopy.geocoders.options.default_ssl_context <span class="op">=</span> ctx</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>geolocator <span class="op">=</span> Photon(user_agent<span class="op">=</span><span class="st">'geoapiExercises'</span>)</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="co">#print(ok_listings.columns)</span></span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="co">#New dataframe with only 3 parameters</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb <span class="op">=</span> ok_listings[[<span class="st">'latitude'</span>, <span class="st">'longitude'</span>]]</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'longitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'longitude'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>,<span class="st">''</span>)</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.longitude <span class="op">=</span> (geolocs_airbnb.longitude.<span class="bu">str</span>[:<span class="dv">1</span>] <span class="op">+</span> <span class="st">'.'</span> <span class="op">+</span> geolocs_airbnb.longitude.<span class="bu">str</span>[<span class="dv">1</span>:])<span class="co">#.astype(float)</span></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co"># print(geolocs_airbnb.longitude)</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'latitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'latitude'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>,<span class="st">''</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.latitude <span class="op">=</span> (geolocs_airbnb.latitude.<span class="bu">str</span>[:<span class="dv">2</span>] <span class="op">+</span> <span class="st">'.'</span> <span class="op">+</span> geolocs_airbnb.latitude.<span class="bu">str</span>[<span class="dv">2</span>:])<span class="co">#.astype(float)</span></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co">#print(type(geolocs_airbnb.latitude[5]))</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="co">#print(longitude)</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="co">#print(geolocs_airbnb)</span></span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(geolocs_airbnb))</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(geolocs_airbnb)):</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>    latitude, longitude <span class="op">=</span> geolocs_airbnb.iloc[i][<span class="st">'latitude'</span>],geolocs_airbnb.iloc[i][<span class="st">'longitude'</span>]</span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>latitude<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>longitude<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    location <span class="op">=</span> geolocator.reverse((latitude, longitude), timeout<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">try</span>:</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>        street <span class="op">=</span> location.raw[<span class="st">'address'</span>][<span class="st">'road'</span>]</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>        geolocs_airbnb.loc[i, <span class="st">'street'</span>] <span class="op">=</span> street</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">except</span>:</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">pass</span></span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.head()</span>
+<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="co">#adding street as a column in our dataframe</span></span>
+<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'street'</span>] <span class="op">=</span> street</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>SyntaxError: invalid syntax (4229780995.py, line 6)</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print(geolocs_airbnb.street)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#It can't get more efficient than this (again)</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Airbnb listings per street:'</span>, geolocs_airbnb.street.value_counts())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print(geolocs_airbnb.street)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#It can't get more efficient than this (again)</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Airbnb listings per street:'</span>, geolocs_airbnb.street.value_counts())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>NameError: name 'geolocs_airbnb' is not defined</code></pre>
 </div>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(ok_listings.columns[<span class="dv">68</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="try-to-cross-reference-the-data-from-the-airbnb-dataset-with-the-bbga.-can-you-figure-out-if-all-apartments-of-airbnb-are-designated-as-housing-which-number-of-apartments-are-not-rented-out-all-the-time-but-are-also-used-as-normal-housing" class="level3">
+<h3 class="anchored" data-anchor-id="try-to-cross-reference-the-data-from-the-airbnb-dataset-with-the-bbga.-can-you-figure-out-if-all-apartments-of-airbnb-are-designated-as-housing-which-number-of-apartments-are-not-rented-out-all-the-time-but-are-also-used-as-normal-housing">4. Try to cross reference the data from the AirBnB dataset with the BBGA. Can you figure out if all apartments of AirBnB are designated as housing? Which number of apartments are not rented out all the time but are also used as normal housing?</h3>
+<p>The two datasets have no categories with immediate similar classification, therefore the cross reference of information is not possible.</p>
+</section>
+<section id="how-many-hotel-rooms-should-be-built-if-amsterdam-wants-to-accommodate-the-same-number-of-tourists" class="level3">
+<h3 class="anchored" data-anchor-id="how-many-hotel-rooms-should-be-built-if-amsterdam-wants-to-accommodate-the-same-number-of-tourists">5. How many hotel rooms should be built if Amsterdam wants to accommodate the same number of tourists?</h3>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we sum individually the column 'accommodates' so we can retrieve the number of people who can stay </span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>no_ppl <span class="op">=</span> ok_listings.accommodates.<span class="bu">sum</span>()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>tourists <span class="op">=</span> <span class="dv">30000</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>tourists_hotel <span class="op">=</span> tourists<span class="op">-</span>no_ppl</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>hotel_rooms_ams <span class="op">=</span> <span class="dv">41840</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>hotel_beds_ams <span class="op">=</span> <span class="dv">90918</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>avg_beds_per_room <span class="op">=</span> hotel_beds_ams<span class="op">/</span>hotel_rooms_ams</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co">#print(avg_beds_per_room)</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of hotel rooms used by tourists who don't fit in airbnbs</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>no_hotel_rooms_used <span class="op">=</span> tourists_hotel<span class="op">/</span>avg_beds_per_room</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of hotel rooms used by tourists who do not fit in airbnbs:'</span>, no_hotel_rooms_used)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>NameError: name 'ok_listings' is not defined</code></pre>
 </div>
 </div>
+</section>
+<section id="how-many-different-licenses-are-issued" class="level3">
+<h3 class="anchored" data-anchor-id="how-many-different-licenses-are-issued">6. How many different licenses are issued?</h3>
 <div class="cell" data-tags="[]" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>licenses <span class="op">=</span> (ok_listings.license.nunique())</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>license_values <span class="op">=</span>(ok_listings.license.value_counts())</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(license_values)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>exemptions <span class="op">=</span> (ok_listings.license.value_counts()[<span class="st">'Exempt'</span>])</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>ulicenses <span class="op">=</span> licenses<span class="op">-</span>exemptions</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of unique Airbnb licenses in Amsterdam (not counting the exempt values):'</span>,ulicenses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#verifying license column</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#print(ok_listings.columns[68])</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>licenses <span class="op">=</span> (ok_listings.license.nunique())</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>license_values <span class="op">=</span>(ok_listings.license.value_counts())</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(license_values)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>exemptions <span class="op">=</span> (ok_listings.license.value_counts()[<span class="st">'Exempt'</span>])</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>ulicenses <span class="op">=</span> licenses<span class="op">-</span>exemptions</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of unique Airbnb licenses in Amsterdam (not counting the exempt values):'</span>,ulicenses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>license
 Exempt                      600
@@ -393,9 +504,14 @@ Name: count, Length: 6972, dtype: int64
 Number of unique Airbnb licenses in Amsterdam (not counting the exempt values): 6372</code></pre>
 </div>
 </div>
-<p>#CONCLUSION: We have more listings than licenses and several ‘exempt’ values. This because these listings already have another sort of license because they either work as hotels or hostels. https://www.airbnb.com/help/article/860</p>
+</section>
+<section id="results-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="results-analysis">Results analysis:</h3>
+<p>We have more listings than licenses and several ‘exempt’ values. This is because the listings already have another type of license since they either work as hotels or hostels. https://www.airbnb.com/help/article/860</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -635,4 +751,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.dev/data1-team11/paralympics-report/blob/main/airbnb_listings_JJ.ipynb" class="toc-action">Edit this page</a></p><p><a href="https://github.com/data1-team11/paralympics-report/issues/new" class="toc-action">Report an issue</a></p></div></div></div></div></footer></body></html>
+</body></html>
