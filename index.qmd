@@ -13,7 +13,6 @@ This is a report on the feasibility of hosting a 5km open water swimming event t
 **Contents of report**
 
 1. [Feasibility of event based on water quality](water.ipynb)
-1. [Proposed swim route and event time](route-and-time.ipynb)
-1. [Energy requirements for event](sustainability.ipynb)
+1. [Energy requirements for event](energy.ipynb)
 1. [Accommodation tendencies from tourism](airbnb_listings_JJ.ipynb)
 1. [Event ammenities](transport.ipynb)
