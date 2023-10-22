@@ -302,9 +302,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>gdf1.head()</span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>gdf1.info()</span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co"># gdf2 = ox.features.features_from_point(finish_swim, tags = tags_10min, dist = 50)</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># gdf2.head()</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># gdf2.info()</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>gdf2 <span class="op">=</span> ox.features.features_from_point(finish_swim, tags <span class="op">=</span> tags_10min, dist <span class="op">=</span> <span class="dv">50</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>gdf2.head()</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>gdf2.info()</span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>link <span class="op">=</span> <span class="st">"https://maps.amsterdam.nl/open_geodata/geojson_lnglat.php?KAARTLAAG=TRAMMETRO_PUNTEN_2022&amp;THEMA=trammetro"</span></span>
@@ -395,7 +395,7 @@ memory usage: 3.1+ KB
 223    14 - Plantage Lepellaan  POINT (4.91548 52.36513)  921.818880  </code></pre>
 </div>
 </div>
-<div class="cell" data-tags="[]" data-execution_count="12">
+<div class="cell" data-tags="[]">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cityswim <span class="op">=</span> ox.graph.graph_from_point(center, dist<span class="op">=</span><span class="dv">1300</span>,</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                                     network_type<span class="op">=</span><span class="st">'all'</span>, dist_type<span class="op">=</span><span class="st">'network'</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -406,9 +406,9 @@ memory usage: 3.1+ KB
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>edges_map <span class="op">=</span> Polygon([(west, north), (east, north), (east, south),</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                     (west, south), (west, north)])</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># water = ox.geometries.geometries_from_bbox(north, south, east,</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   west, tags={'natural' : 'water'})</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># water = water.clip(edges_map)</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>water <span class="op">=</span> ox.geometries.geometries_from_bbox(north, south, east,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                                           west, tags<span class="op">=</span>{<span class="st">'natural'</span> : <span class="st">'water'</span>})</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>water <span class="op">=</span> water.clip(edges_map)</span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>)</span>
@@ -422,8 +422,8 @@ memory usage: 3.1+ KB
 <span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>stops.plot(ax<span class="op">=</span>ax, markersize<span class="op">=</span><span class="dv">20</span>, color<span class="op">=</span><span class="st">"orange"</span>)</span>
 <span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>gdf1.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">"purple"</span>)  <span class="co"># We determine a 50m radius for the close</span></span>
 <span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="co"># buildings in order to ssign the HQ of the race.</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="co"># gdf2.plot(ax=ax, color = "dark green")</span></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="co"># water.plot(ax=ax, color="lightblue")</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>gdf2.plot(ax<span class="op">=</span>ax, color <span class="op">=</span> <span class="st">"dark green"</span>)</span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>water.plot(ax<span class="op">=</span>ax, color<span class="op">=</span><span class="st">"lightblue"</span>)</span>
 <span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"publictransport.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
