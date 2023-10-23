@@ -93,6 +93,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -243,7 +246,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="code" class="level3">
 <h3 class="anchored" data-anchor-id="code">Code:</h3>
-<div class="cell" data-execution_count="9">
+<div class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we discard listings with minimum stays of more than 7 nights</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ok_listings <span class="op">=</span> df[(df[<span class="st">'minimum_nights'</span>] <span class="op">&lt;</span> <span class="dv">8</span>)].copy()</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -326,7 +329,7 @@ Total tax revenue gathered for the government 1540910.152266878</code></pre>
 <li>Gather the different categories inside the column neighourhood</li>
 <li>Sum each category inside neighbourhood</li>
 </ol>
-<div class="cell" data-execution_count="125">
+<div class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#It can't get mpre efficient than this</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#table = ok_listings.neighbourhood_cleansed.value_counts()</span></span>
@@ -358,13 +361,10 @@ Total tax revenue gathered for the government 1540910.152266878</code></pre>
 21                            Bijlmer-Oost     37</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="201">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly.io <span class="im">as</span> pio</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>pio.renderers.default<span class="op">=</span><span class="st">'notebook'</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># graph with information</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>figure <span class="op">=</span> px.bar(re_index, x<span class="op">=</span><span class="st">'neighbourhood_cleansed'</span>, y<span class="op">=</span><span class="st">'count'</span>, title <span class="op">=</span>  <span class="st">'Number of airbnbs per neighbourhood in Amsterdam'</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>figure.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#graph with information</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>figure <span class="op">=</span> px.bar(re_index, x<span class="op">=</span><span class="st">'neighbourhood_cleansed'</span>, y<span class="op">=</span><span class="st">'count'</span>, title <span class="op">=</span>  <span class="st">'Number of airbnbs per neighbourhood in Amsterdam'</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>figure.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
 </div>
@@ -381,7 +381,7 @@ Total tax revenue gathered for the government 1540910.152266878</code></pre>
 <li>Gather the different categories inside the column Street.</li>
 <li>Sum each category per street filter.</li>
 </ol>
-<div class="cell" data-execution_count="27">
+<div class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#pip install geopy</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> certifi</span>
@@ -399,7 +399,7 @@ Total tax revenue gathered for the government 1540910.152266878</code></pre>
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>ctx <span class="op">=</span> ssl.create_default_context(cafile<span class="op">=</span>certifi.where())</span>
 <span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>geopy.geocoders.options.default_ssl_context <span class="op">=</span> ctx</span>
 <span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>geolocator <span class="op">=</span> Photon(user_agent<span class="op">=</span><span class="st">'geoapiExercises'</span>)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>geolocator <span class="op">=</span> Nominatim(user_agent<span class="op">=</span><span class="st">'geoapiExercises'</span>)</span>
 <span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">#print(ok_listings.columns)</span></span>
 <span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a></span>
@@ -411,159 +411,223 @@ Total tax revenue gathered for the government 1540910.152266878</code></pre>
 <span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'longitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'longitude'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>,<span class="st">''</span>)</span>
 <span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.longitude <span class="op">=</span> (geolocs_airbnb.longitude.<span class="bu">str</span>[:<span class="dv">1</span>] <span class="op">+</span> <span class="st">'.'</span><span class="op">+</span> geolocs_airbnb.longitude.<span class="bu">str</span>[<span class="dv">1</span>:]).astype(<span class="bu">float</span>)</span>
 <span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co">#print(geolocs_airbnb.longitude)</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'latitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'latitude'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>,<span class="st">''</span>)</span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'latitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'latitude'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>,<span class="st">''</span>)</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.latitude <span class="op">=</span> (geolocs_airbnb.latitude.<span class="bu">str</span>[:<span class="dv">2</span>] <span class="op">+</span> <span class="st">'.'</span> <span class="op">+</span> geolocs_airbnb.latitude.<span class="bu">str</span>[<span class="dv">2</span>:]).astype(<span class="bu">float</span>)</span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="co">#print(type(geolocs_airbnb.latitude[5]))</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a><span class="co">#print(longitude)</span></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="co">#print(geolocs_airbnb)</span></span>
-<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a><span class="co">#print(len(geolocs_airbnb))</span></span>
-<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">3</span>):</span>
-<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>    latitude, longitude <span class="op">=</span> geolocs_airbnb.iloc[i][<span class="st">'latitude'</span>],geolocs_airbnb.iloc[i][<span class="st">'longitude'</span>]</span>
-<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>latitude<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>longitude<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>    location <span class="op">=</span> geolocator.reverse((latitude, longitude), timeout<span class="op">=</span><span class="va">None</span>)</span>
-<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(location.raw)  </span>
-<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>    street <span class="op">=</span> location.raw[<span class="st">'properties'</span>][<span class="st">'street'</span>]</span>
-<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>    geolocs_airbnb.loc[i, <span class="st">'street'</span>] <span class="op">=</span> street</span>
-<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>   </span>
-<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.head()</span>
-<span id="cb9-50"><a href="#cb9-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-51"><a href="#cb9-51" aria-hidden="true" tabindex="-1"></a><span class="co">#adding street as a column in our dataframe</span></span>
-<span id="cb9-52"><a href="#cb9-52" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'street'</span>] <span class="op">=</span> street</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'latitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'latitude'</span>].<span class="bu">str</span>.replace(<span class="st">','</span>,<span class="st">''</span>)</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb[<span class="st">'latitude'</span>]<span class="op">=</span>geolocs_airbnb[<span class="st">'latitude'</span>].<span class="bu">str</span>.replace(<span class="st">'.'</span>,<span class="st">''</span>)</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.latitude <span class="op">=</span> (geolocs_airbnb.latitude.<span class="bu">str</span>[:<span class="dv">2</span>] <span class="op">+</span> <span class="st">'.'</span> <span class="op">+</span> geolocs_airbnb.latitude.<span class="bu">str</span>[<span class="dv">2</span>:]).astype(<span class="bu">float</span>)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(geolocs_airbnb)):</span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    latitude, longitude <span class="op">=</span> geolocs_airbnb.iloc[i][<span class="st">'latitude'</span>],geolocs_airbnb.iloc[i][<span class="st">'longitude'</span>]</span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    location <span class="op">=</span> geolocator.reverse((latitude, longitude), timeout<span class="op">=</span><span class="va">None</span>)</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>    street <span class="op">=</span> location.raw[<span class="st">'address'</span>][<span class="st">'road'</span>]</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>    geolocs_airbnb.loc[i, <span class="st">'street'</span>] <span class="op">=</span> street</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>geolocs_airbnb.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\4277228365.py:26: SettingWithCopyWarning: 
+<pre><code>C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\3954983463.py:26: SettingWithCopyWarning:
+
+
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  geolocs_airbnb['longitude']=geolocs_airbnb['longitude'].str.replace(',','')
-C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\4277228365.py:27: SettingWithCopyWarning: 
+
+C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\3954983463.py:27: SettingWithCopyWarning:
+
+
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  geolocs_airbnb['longitude']=geolocs_airbnb['longitude'].str.replace('.','')
-C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\4277228365.py:28: SettingWithCopyWarning: 
+
+C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\3954983463.py:28: SettingWithCopyWarning:
+
+
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  geolocs_airbnb.longitude = (geolocs_airbnb.longitude.str[:1] + '.'+ geolocs_airbnb.longitude.str[1:]).astype(float)
-C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\4277228365.py:32: SettingWithCopyWarning: 
+
+C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\3954983463.py:32: SettingWithCopyWarning:
+
+
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  geolocs_airbnb['latitude']=geolocs_airbnb['latitude'].str.replace(',','')
-C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\4277228365.py:33: SettingWithCopyWarning: 
+
+C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\3954983463.py:33: SettingWithCopyWarning:
+
+
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  geolocs_airbnb['latitude']=geolocs_airbnb['latitude'].str.replace('.','')
-C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\4277228365.py:34: SettingWithCopyWarning: 
+
+C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\3954983463.py:34: SettingWithCopyWarning:
+
+
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  geolocs_airbnb.latitude = (geolocs_airbnb.latitude.str[:2] + '.' + geolocs_airbnb.latitude.str[2:]).astype(float)
-C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\4277228365.py:47: SettingWithCopyWarning: 
+
+C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\3954983463.py:47: SettingWithCopyWarning:
+
+
 A value is trying to be set on a copy of a slice from a DataFrame.
 Try using .loc[row_indexer,col_indexer] = value instead
 
 See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  geolocs_airbnb.loc[i, 'street'] = street
-C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\4277228365.py:47: FutureWarning: Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value 'Jisperveldstraat' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
-  geolocs_airbnb.loc[i, 'street'] = street</code></pre>
+
+C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\3954983463.py:47: FutureWarning:
+
+Setting an item of incompatible dtype is deprecated and will raise in a future error of pandas. Value 'Jisperveldstraat' has dtype incompatible with float64, please explicitly cast to a compatible dtype first.
+</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>52.40164, 4.95106
-{'geometry': {'coordinates': [4.9515278047393405, 52.401009], 'type': 'Point'}, 'type': 'Feature', 'properties': {'osm_id': 280764133, 'extent': [4.9514575, 52.4010492, 4.9515981, 52.4009688], 'country': 'Nederland', 'city': 'Amsterdam', 'countrycode': 'NL', 'postcode': '1024 BC', 'type': 'house', 'osm_type': 'W', 'osm_key': 'man_made', 'street': 'Jisperveldstraat', 'district': 'Noord', 'osm_value': 'pumping_station', 'name': 'Gemaal Jisperveldstraat', 'state': 'Noord-Holland'}}
+{'place_id': 137028589, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'way', 'osm_id': 280764133, 'lat': '52.401009', 'lon': '4.9515278047393405', 'class': 'man_made', 'type': 'pumping_station', 'place_rank': 30, 'importance': 9.99999999995449e-06, 'addresstype': 'man_made', 'name': 'Gemaal Jisperveldstraat', 'display_name': 'Gemaal Jisperveldstraat, Jisperveldstraat, Noord, Zunderdorp, Amsterdam, Noord-Holland, Nederland, 1024 BC, Nederland', 'address': {'man_made': 'Gemaal Jisperveldstraat', 'road': 'Jisperveldstraat', 'suburb': 'Noord', 'village': 'Zunderdorp', 'city': 'Amsterdam', 'municipality': 'Amsterdam', 'state': 'Noord-Holland', 'ISO3166-2-lvl4': 'NL-NH', 'country': 'Nederland', 'postcode': '1024 BC', 'country_code': 'nl'}, 'boundingbox': ['52.4009688', '52.4010492', '4.9514575', '4.9515981']}
 52.38855, 4.88521
-{'geometry': {'coordinates': [4.8853248, 52.3885722], 'type': 'Point'}, 'type': 'Feature', 'properties': {'osm_id': 7377913, 'extent': [4.8851325, 52.3886311, 4.8858183, 52.3885722], 'country': 'Nederland', 'city': 'Amsterdam', 'countrycode': 'NL', 'postcode': '1013 LD', 'locality': 'Zeeheldenbuurt', 'type': 'street', 'osm_type': 'W', 'osm_key': 'highway', 'district': 'West', 'osm_value': 'unclassified', 'name': 'Zoutkeetsplein', 'state': 'Noord-Holland'}}</code></pre>
+{'place_id': 137826675, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'node', 'osm_id': 2788045783, 'lat': '52.3886465', 'lon': '4.8849671', 'class': 'place', 'type': 'house', 'place_rank': 30, 'importance': 9.99999999995449e-06, 'addresstype': 'place', 'name': '', 'display_name': '82, Zoutkeetsplein, Zeeheldenbuurt, West, Amsterdam, Noord-Holland, Nederland, 1013 MR, Nederland', 'address': {'house_number': '82', 'road': 'Zoutkeetsplein', 'residential': 'Zeeheldenbuurt', 'suburb': 'West', 'city': 'Amsterdam', 'municipality': 'Amsterdam', 'state': 'Noord-Holland', 'ISO3166-2-lvl4': 'NL-NH', 'country': 'Nederland', 'postcode': '1013 MR', 'country_code': 'nl'}, 'boundingbox': ['52.3885965', '52.3886965', '4.8849171', '4.8850171']}
+52.37824, 4.86826
+{'place_id': 137399079, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'node', 'osm_id': 8334856487, 'lat': '52.3784157', 'lon': '4.868362', 'class': 'place', 'type': 'house', 'place_rank': 30, 'importance': 9.99999999995449e-06, 'addresstype': 'place', 'name': '', 'display_name': '125, Centrale Groothandelsmarkt, Food Center Amsterdam, West, Amsterdam, Noord-Holland, Nederland, 1051 LJ, Nederland', 'address': {'house_number': '125', 'road': 'Centrale Groothandelsmarkt', 'industrial': 'Food Center Amsterdam', 'suburb': 'West', 'city': 'Amsterdam', 'municipality': 'Amsterdam', 'state': 'Noord-Holland', 'ISO3166-2-lvl4': 'NL-NH', 'country': 'Nederland', 'postcode': '1051 LJ', 'country_code': 'nl'}, 'boundingbox': ['52.3783657', '52.3784657', '4.8683120', '4.8684120']}
+52.34091, 4.84802
+{'place_id': 138336953, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'way', 'osm_id': 276997876, 'lat': '52.34091435', 'lon': '4.8480442456550445', 'class': 'building', 'type': 'houseboat', 'place_rank': 30, 'importance': 9.99999999995449e-06, 'addresstype': 'building', 'name': '', 'display_name': '66E, IJsbaanpad, Zuid, Amsterdam, Noord-Holland, Nederland, 1076 CW, Nederland', 'address': {'house_number': '66E', 'road': 'IJsbaanpad', 'suburb': 'Zuid', 'city': 'Amsterdam', 'municipality': 'Amsterdam', 'state': 'Noord-Holland', 'ISO3166-2-lvl4': 'NL-NH', 'country': 'Nederland', 'postcode': '1076 CW', 'country_code': 'nl'}, 'boundingbox': ['52.3408630', '52.3409656', '4.8479167', '4.8481718']}
+52.37641, 4.88303
+{'place_id': 138270976, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'way', 'osm_id': 222278733, 'lat': '52.37197895', 'lon': '4.884726800042784', 'class': 'historic', 'type': 'heritage', 'place_rank': 30, 'importance': 0.4119886596496219, 'addresstype': 'historic', 'name': 'Grachtengordel van Amsterdam', 'display_name': 'Grachtengordel van Amsterdam, Derde Egelantiersdwarsstraat, Jordaan, Centrum, Amsterdam, Noord-Holland, Nederland, 1015 RR, Nederland', 'address': {'historic': 'Grachtengordel van Amsterdam', 'road': 'Derde Egelantiersdwarsstraat', 'quarter': 'Jordaan', 'suburb': 'Centrum', 'city': 'Amsterdam', 'municipality': 'Amsterdam', 'state': 'Noord-Holland', 'ISO3166-2-lvl4': 'NL-NH', 'country': 'Nederland', 'postcode': '1015 RR', 'country_code': 'nl'}, 'boundingbox': ['52.3608798', '52.3829022', '4.8791889', '4.9115984']}
+52.34985, 4.83578
+{'place_id': 137959951, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'node', 'osm_id': 2808380657, 'lat': '52.3496149', 'lon': '4.8358018', 'class': 'place', 'type': 'house', 'place_rank': 30, 'importance': 9.99999999995449e-06, 'addresstype': 'place', 'name': '', 'display_name': '276, Maassluisstraat, Westlandgracht, Nieuw-West, Amsterdam, Noord-Holland, Nederland, 1062 GM, Nederland', 'address': {'house_number': '276', 'road': 'Maassluisstraat', 'neighbourhood': 'Westlandgracht', 'suburb': 'Nieuw-West', 'city': 'Amsterdam', 'municipality': 'Amsterdam', 'state': 'Noord-Holland', 'ISO3166-2-lvl4': 'NL-NH', 'country': 'Nederland', 'postcode': '1062 GM', 'country_code': 'nl'}, 'boundingbox': ['52.3495649', '52.3496649', '4.8357518', '4.8358518']}
+52.37026, 4.89931
+{'place_id': 138203004, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'node', 'osm_id': 2725747480, 'lat': '52.370323', 'lon': '4.899345', 'class': 'place', 'type': 'house', 'place_rank': 30, 'importance': 9.99999999995449e-06, 'addresstype': 'place', 'name': '', 'display_name': '14, Zanddwarsstraat, Nieuwmarkt/Lastage, Centrum, Amsterdam, Noord-Holland, Nederland, 1011 HP, Nederland', 'address': {'house_number': '14', 'road': 'Zanddwarsstraat', 'quarter': 'Nieuwmarkt/Lastage', 'suburb': 'Centrum', 'city': 'Amsterdam', 'municipality': 'Amsterdam', 'state': 'Noord-Holland', 'ISO3166-2-lvl4': 'NL-NH', 'country': 'Nederland', 'postcode': '1011 HP', 'country_code': 'nl'}, 'boundingbox': ['52.3702730', '52.3703730', '4.8992950', '4.8993950']}
+52.36256, 4.89809
+{'place_id': 138514190, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'node', 'osm_id': 10769307732, 'lat': '52.3625768', 'lon': '4.8980901', 'class': 'office', 'type': 'lawyer', 'place_rank': 30, 'importance': 9.99999999995449e-06, 'addresstype': 'office', 'name': 'Van Gessel Advocaten', 'display_name': 'Van Gessel Advocaten, 7, Amstelveld, Grachtengordel, Centrum, Amsterdam, Noord-Holland, Nederland, 1017 JD, Nederland', 'address': {'office': 'Van Gessel Advocaten', 'house_number': '7', 'road': 'Amstelveld', 'residential': 'Grachtengordel', 'suburb': 'Centrum', 'city': 'Amsterdam', 'municipality': 'Amsterdam', 'state': 'Noord-Holland', 'ISO3166-2-lvl4': 'NL-NH', 'country': 'Nederland', 'postcode': '1017 JD', 'country_code': 'nl'}, 'boundingbox': ['52.3625268', '52.3626268', '4.8980401', '4.8981401']}
+52.36435, 4.94358
+{'place_id': 138623511, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'way', 'osm_id': 172341575, 'lat': '52.3644253', 'lon': '4.943545118223069', 'class': 'leisure', 'type': 'garden', 'place_rank': 30, 'importance': 9.99999999995449e-06, 'addresstype': 'leisure', 'name': '', 'display_name': 'Soembawastraat, Indische Buurt, Oost, Amsterdam, Noord-Holland, Nederland, 1095 VW, Nederland', 'address': {'road': 'Soembawastraat', 'neighbourhood': 'Indische Buurt', 'suburb': 'Oost', 'city': 'Amsterdam', 'municipality': 'Amsterdam', 'state': 'Noord-Holland', 'ISO3166-2-lvl4': 'NL-NH', 'country': 'Nederland', 'postcode': '1095 VW', 'country_code': 'nl'}, 'boundingbox': ['52.3640503', '52.3648004', '4.9432807', '4.9438096']}
+52.36407, 4.89393
+{'place_id': 138513744, 'licence': 'Data © OpenStreetMap contributors, ODbL 1.0. http://osm.org/copyright', 'osm_type': 'node', 'osm_id': 2736377676, 'lat': '52.3639102', 'lon': '4.8938953', 'class': 'place', 'type': 'house', 'place_rank': 30, 'importance': 9.99999999995449e-06, 'addresstype': 'place', 'name': '', 'display_name': '617, Keizersgracht, Grachtengordel, Centrum, Amsterdam, Noord-Holland, Nederland, 1017 DS, Nederland', 'address': {'house_number': '617', 'road': 'Keizersgracht', 'residential': 'Grachtengordel', 'suburb': 'Centrum', 'city': 'Amsterdam', 'municipality': 'Amsterdam', 'state': 'Noord-Holland', 'ISO3166-2-lvl4': 'NL-NH', 'country': 'Nederland', 'postcode': '1017 DS', 'country_code': 'nl'}, 'boundingbox': ['52.3638602', '52.3639602', '4.8938453', '4.8939453']}</code></pre>
 </div>
-<div class="cell-output cell-output-error">
-<pre><code>KeyError: 'street'</code></pre>
-</div>
-</div>
-<div class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(geolocs_airbnb)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(location.raw[<span class="st">'properties'</span>][<span class="st">'street'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       latitude  longitude            street
-0     52.401640   4.951060  Jisperveldstraat
-1     52.388550   4.885210               NaN
-2     52.378240   4.868260               NaN
-3     52.340910   4.848020               NaN
-4     52.376410   4.883030               NaN
-...         ...        ...               ...
-8381  52.394972   4.906180               NaN
-8382  52.387880   4.911080               NaN
-8383  52.386497   4.848041               NaN
-8384  52.372431   4.894491               NaN
-8385  52.342122   4.909411               NaN
+<div class="cell-output cell-output-display" data-execution_count="37">
+<div>
 
-[8035 rows x 3 columns]</code></pre>
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">latitude</th>
+<th data-quarto-table-cell-role="th">longitude</th>
+<th data-quarto-table-cell-role="th">street</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>52.40164</td>
+<td>4.95106</td>
+<td>Jisperveldstraat</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>52.38855</td>
+<td>4.88521</td>
+<td>Zoutkeetsplein</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>52.37824</td>
+<td>4.86826</td>
+<td>Centrale Groothandelsmarkt</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>52.34091</td>
+<td>4.84802</td>
+<td>IJsbaanpad</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>52.37641</td>
+<td>4.88303</td>
+<td>Derde Egelantiersdwarsstraat</td>
+</tr>
+</tbody>
+</table>
+
 </div>
-<div class="cell-output cell-output-error">
-<pre><code>KeyError: 'street'</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(geolocs_airbnb.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   latitude  longitude                        street
+0  52.40164    4.95106              Jisperveldstraat
+1  52.38855    4.88521                Zoutkeetsplein
+2  52.37824    4.86826    Centrale Groothandelsmarkt
+3  52.34091    4.84802                    IJsbaanpad
+4  52.37641    4.88303  Derde Egelantiersdwarsstraat</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#saving harvested data inside another file for next tries</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>fileObj <span class="op">=</span> <span class="bu">open</span>(<span class="st">'data.obj'</span>, <span class="st">'wb'</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>pickle.dump(geolocs_airbnb,fileObj)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>fileObj.close()</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>pickle.load</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#saving harvested data inside another file for next tries</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pickle</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>fileObj <span class="op">=</span> <span class="bu">open</span>(<span class="st">'data.obj'</span>, <span class="st">'wb'</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>pickle.dump(geolocs_airbnb,fileObj)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>fileObj.close()</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>pickle.load</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>NameError: name 'geolocs_airbnb' is not defined</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="105">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print(geolocs_airbnb.street)</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Airbnb listings per street:'</span>, geolocs_airbnb.street.value_counts())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>AttributeError: 'DataFrame' object has no attribute 'street'</code></pre>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#print(geolocs_airbnb.street)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Airbnb listings per street:'</span>, geolocs_airbnb.street.value_counts())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of Airbnb listings per street: street
+Jisperveldstraat                1
+Zoutkeetsplein                  1
+Centrale Groothandelsmarkt      1
+IJsbaanpad                      1
+Derde Egelantiersdwarsstraat    1
+Maassluisstraat                 1
+Zanddwarsstraat                 1
+Amstelveld                      1
+Soembawastraat                  1
+Keizersgracht                   1
+Name: count, dtype: int64</code></pre>
 </div>
 </div>
 <div class="cell" data-execution_count="196">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> osmnx <span class="im">as</span> ox</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly <span class="im">as</span> py</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> Point, Polygon</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co">#here we set up a geodata frame based on the airbnb data set and do so with lat and long as geo location</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>points_airbnb <span class="op">=</span> gpd.GeoDataFrame(geolocs_airbnb, geometry<span class="op">=</span>gpd.points_from_xy(geolocs_airbnb.longitude, geolocs_airbnb.latitude), crs <span class="op">=</span> <span class="st">"WGS84"</span>)</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(points_airbnb.head())</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="co"># distribution of airbnbs in ams</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>ams <span class="op">=</span> <span class="st">"Amsterdam"</span></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>graph <span class="op">=</span> ox.graph_from_place(ams)</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co">#map with airbnbs locations</span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">150</span>,<span class="dv">150</span>))</span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>) <span class="co">#same scaling as data available</span></span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>ax.set_facecolor(<span class="st">'black'</span>)</span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>ox.plot_graph(graph, edge_color<span class="op">=</span><span class="st">'#edf2f1'</span>,</span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>                        node_size<span class="op">=</span><span class="dv">0</span>, edge_linewidth<span class="op">=</span><span class="dv">5</span>,</span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>                        show<span class="op">=</span><span class="va">False</span>, close<span class="op">=</span><span class="va">False</span>, ax<span class="op">=</span>ax,</span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>                        )</span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>points_airbnb.plot(ax<span class="op">=</span>ax, color <span class="op">=</span><span class="st">"#81dec8"</span>, markersize <span class="op">=</span> <span class="dv">150</span>)</span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"Q2_Q3_airbnbsAMS.png"</span>)</span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>[Map](images<span class="op">/</span>Q2_Q3_airbnbsAMS.png)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> osmnx <span class="im">as</span> ox</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotly <span class="im">as</span> py</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> Point, Polygon</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co">#here we set up a geodata frame based on the airbnb data set and do so with lat and long as geo location</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>points_airbnb <span class="op">=</span> gpd.GeoDataFrame(geolocs_airbnb, geometry<span class="op">=</span>gpd.points_from_xy(geolocs_airbnb.longitude, geolocs_airbnb.latitude), crs <span class="op">=</span> <span class="st">"WGS84"</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(points_airbnb.head())</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="co"># distribution of airbnbs in ams</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>ams <span class="op">=</span> <span class="st">"Amsterdam"</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>graph <span class="op">=</span> ox.graph_from_place(ams)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="co">#map with airbnbs locations</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">150</span>,<span class="dv">150</span>))</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>ax.set_aspect(<span class="st">'equal'</span>) <span class="co">#same scaling as data available</span></span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>ax.set_facecolor(<span class="st">'black'</span>)</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>ox.plot_graph(graph, edge_color<span class="op">=</span><span class="st">'#edf2f1'</span>,</span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>                        node_size<span class="op">=</span><span class="dv">0</span>, edge_linewidth<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a>                        show<span class="op">=</span><span class="va">False</span>, close<span class="op">=</span><span class="va">False</span>, ax<span class="op">=</span>ax,</span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>                        )</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a>points_airbnb.plot(ax<span class="op">=</span>ax, color <span class="op">=</span><span class="st">"#81dec8"</span>, markersize <span class="op">=</span> <span class="dv">150</span>)</span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-26"><a href="#cb18-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-27"><a href="#cb18-27" aria-hidden="true" tabindex="-1"></a>plt.savefig(<span class="st">"Q2_Q3_airbnbsAMS.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   latitude  longitude                  geometry
 0  52.40164    4.95106  POINT (4.95106 52.40164)
@@ -580,22 +644,22 @@ C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\4277228365.py:47: FutureWarnin
 <section id="try-to-cross-reference-the-data-from-the-airbnb-dataset-with-the-bbga.-can-you-figure-out-if-all-apartments-of-airbnb-are-designated-as-housing-which-number-of-apartments-are-not-rented-out-all-the-time-but-are-also-used-as-normal-housing" class="level3">
 <h3 class="anchored" data-anchor-id="try-to-cross-reference-the-data-from-the-airbnb-dataset-with-the-bbga.-can-you-figure-out-if-all-apartments-of-airbnb-are-designated-as-housing-which-number-of-apartments-are-not-rented-out-all-the-time-but-are-also-used-as-normal-housing">4. Try to cross reference the data from the AirBnB dataset with the BBGA. Can you figure out if all apartments of AirBnB are designated as housing? Which number of apartments are not rented out all the time but are also used as normal housing?</h3>
 <div class="cell" data-execution_count="164">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">#usable data from bbga</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>bbga_df <span class="op">=</span> pd.read_csv(<span class="st">'./data/2023_BBGA_0614_cf8d825e89.csv'</span>) <span class="co">#./bbga_short.csv</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(bbga_df)</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>bbga_df.replace({ <span class="st">"Oud West, De Baarsjes"</span> :<span class="st">"De Baarsjes - Oud-West"</span>,</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"De Pijp, Rivierenbuurt"</span>:<span class="st">"De Pijp - Rivierenbuurt"</span>,</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Indische Buurt, Oostelijk Havengebied"</span> : <span class="st">"Oostelijk Havengebied - Indische Buurt"</span>,</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"IJburg, Zeeburgereiland"</span> : <span class="st">"IJburg - Zeeburgereiland"</span>,</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Geuzenveld, Slotermeer"</span> : <span class="st">"Geuzenveld - Slotermeer"</span>,</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Buitenveldert, Zuidas"</span> : <span class="st">"Buitenveldert - Zuidas"</span>,</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Oud-Zuid"</span> : <span class="st">"Zuid"</span> ,</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"De Aker, Sloten, Nieuw-Sloten"</span> : <span class="st">"De Aker - Nieuw Sloten"</span>,</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Gaasperdam"</span> : <span class="st">"Gaasperdam - Driemond"</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bbga_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">#usable data from bbga</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>bbga_df <span class="op">=</span> pd.read_csv(<span class="st">'./data/2023_BBGA_0614_cf8d825e89.csv'</span>) <span class="co">#./bbga_short.csv</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(bbga_df)</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>bbga_df.replace({ <span class="st">"Oud West, De Baarsjes"</span> :<span class="st">"De Baarsjes - Oud-West"</span>,</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"De Pijp, Rivierenbuurt"</span>:<span class="st">"De Pijp - Rivierenbuurt"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Indische Buurt, Oostelijk Havengebied"</span> : <span class="st">"Oostelijk Havengebied - Indische Buurt"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"IJburg, Zeeburgereiland"</span> : <span class="st">"IJburg - Zeeburgereiland"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Geuzenveld, Slotermeer"</span> : <span class="st">"Geuzenveld - Slotermeer"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Buitenveldert, Zuidas"</span> : <span class="st">"Buitenveldert - Zuidas"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Oud-Zuid"</span> : <span class="st">"Zuid"</span> ,</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"De Aker, Sloten, Nieuw-Sloten"</span> : <span class="st">"De Aker - Nieuw Sloten"</span>,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>             <span class="st">"Gaasperdam"</span> : <span class="st">"Gaasperdam - Driemond"</span>}, inplace <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bbga_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       niveau niveaunaam    sd          sdnaam gebiedcode22  \
 0         1.0   Gemeente  STAD  0363 Amsterdam         STAD   
@@ -732,24 +796,24 @@ C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\4277228365.py:47: FutureWarnin
 </div>
 </div>
 <div class="cell" data-execution_count="202">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>bbga_df <span class="op">=</span> pd.read_csv(<span class="st">'C:/Users/jjcor/Downloads/2023_BBGA_0614_cf8d825e89.csv'</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>bbga_ok <span class="op">=</span> bbga_df.loc[<span class="dv">3937</span>:<span class="dv">3963</span>,[<span class="st">'gebiednaam'</span>,<span class="st">'BHVESTAIRBNB'</span>]]</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#name of neighborhood paramenters equally (using airbnb file)</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>new_bbga <span class="op">=</span> bbga_ok.replace({</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Oud West, De Baarsjes"</span> :<span class="st">"De Baarsjes - Oud-West"</span>, <span class="st">"De Pijp, Rivierenbuurt"</span>:<span class="st">"De Pijp - Rivierenbuurt"</span>,</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Indische Buurt, Oostelijk Havengebied"</span> : <span class="st">"Oostelijk Havengebied - Indische Buurt"</span>, <span class="st">"IJburg, Zeeburgereiland"</span> : <span class="st">"IJburg - Zeeburgereiland"</span>,</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Geuzenveld, Slotermeer"</span> : <span class="st">"Geuzenveld - Slotermeer"</span>, <span class="st">"Buitenveldert, Zuidas"</span> : <span class="st">"Buitenveldert - Zuidas"</span>,</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Oud-Zuid"</span> : <span class="st">"Zuid"</span>, <span class="st">"De Aker, Sloten, Nieuw-Sloten"</span> : <span class="st">"De Aker - Nieuw Sloten"</span>, <span class="st">"Gaasperdam"</span> : <span class="st">"Gaasperdam - Driemond"</span> </span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>            })</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the amount of apartments from both datasets</span></span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(re_index, x<span class="op">=</span><span class="st">'neighbourhood_cleansed'</span>, y<span class="op">=</span><span class="st">'count'</span>, title<span class="op">=</span> <span class="st">'Data comparison of airbnb units according to bbga and airbnb'</span>)</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>fig.add_bar(x<span class="op">=</span>new_bbga[<span class="st">'gebiednaam'</span>], y<span class="op">=</span>new_bbga[<span class="st">'BHVESTAIRBNB'</span>],name<span class="op">=</span><span class="st">"BBGA"</span>)</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="co">#fig.add_bar(x=re_index.neighbourhood_cleansed.value_counts([]), y='count', name="abb")</span></span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>fig.update_layout(barmode<span class="op">=</span><span class="st">'group'</span>)</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>[chart](images<span class="op">/</span>Q4_comparison.png)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>bbga_df <span class="op">=</span> pd.read_csv(<span class="st">'C:/Users/jjcor/Downloads/2023_BBGA_0614_cf8d825e89.csv'</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>bbga_ok <span class="op">=</span> bbga_df.loc[<span class="dv">3937</span>:<span class="dv">3963</span>,[<span class="st">'gebiednaam'</span>,<span class="st">'BHVESTAIRBNB'</span>]]</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="co">#name of neighborhood paramenters equally (using airbnb file)</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>new_bbga <span class="op">=</span> bbga_ok.replace({</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Oud West, De Baarsjes"</span> :<span class="st">"De Baarsjes - Oud-West"</span>, <span class="st">"De Pijp, Rivierenbuurt"</span>:<span class="st">"De Pijp - Rivierenbuurt"</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Indische Buurt, Oostelijk Havengebied"</span> : <span class="st">"Oostelijk Havengebied - Indische Buurt"</span>, <span class="st">"IJburg, Zeeburgereiland"</span> : <span class="st">"IJburg - Zeeburgereiland"</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Geuzenveld, Slotermeer"</span> : <span class="st">"Geuzenveld - Slotermeer"</span>, <span class="st">"Buitenveldert, Zuidas"</span> : <span class="st">"Buitenveldert - Zuidas"</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"Oud-Zuid"</span> : <span class="st">"Zuid"</span>, <span class="st">"De Aker, Sloten, Nieuw-Sloten"</span> : <span class="st">"De Aker - Nieuw Sloten"</span>, <span class="st">"Gaasperdam"</span> : <span class="st">"Gaasperdam - Driemond"</span> </span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>            })</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co">#plot the amount of apartments from both datasets</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> px.bar(re_index, x<span class="op">=</span><span class="st">'neighbourhood_cleansed'</span>, y<span class="op">=</span><span class="st">'count'</span>, title<span class="op">=</span> <span class="st">'Data comparison of airbnb units according to bbga and airbnb'</span>)</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>fig.add_bar(x<span class="op">=</span>new_bbga[<span class="st">'gebiednaam'</span>], y<span class="op">=</span>new_bbga[<span class="st">'BHVESTAIRBNB'</span>],name<span class="op">=</span><span class="st">"BBGA"</span>)</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="co">#fig.add_bar(x=re_index.neighbourhood_cleansed.value_counts([]), y='count', name="abb")</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>fig.update_layout(barmode<span class="op">=</span><span class="st">'group'</span>)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>fig.show()</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>[chart](images<span class="op">/</span>Q4_comparison.png)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>Unable to display output for mime type(s): application/vnd.plotly.v1+json</code></pre>
 </div>
@@ -759,24 +823,24 @@ C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\4277228365.py:47: FutureWarnin
 <section id="how-many-hotel-rooms-should-be-built-if-amsterdam-wants-to-accommodate-the-same-number-of-tourists" class="level3">
 <h3 class="anchored" data-anchor-id="how-many-hotel-rooms-should-be-built-if-amsterdam-wants-to-accommodate-the-same-number-of-tourists">5. How many hotel rooms should be built if Amsterdam wants to accommodate the same number of tourists?</h3>
 <div class="cell" data-execution_count="199">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we sum individually the column 'accommodates' so we can retrieve the number of people who can stay </span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>no_ppl <span class="op">=</span> ok_listings.accommodates.<span class="bu">sum</span>()</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>tourists <span class="op">=</span> <span class="dv">30000</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>tourists_hotel <span class="op">=</span> tourists<span class="op">-</span>no_ppl</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>hotel_rooms_ams <span class="op">=</span> <span class="dv">41840</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>hotel_beds_ams <span class="op">=</span> <span class="dv">90918</span></span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>avg_beds_per_room <span class="op">=</span> hotel_beds_ams<span class="op">/</span>hotel_rooms_ams</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co">#print(avg_beds_per_room)</span></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of hotel rooms used by tourists who don't fit in airbnbs</span></span>
-<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>no_hotel_rooms_used <span class="op">=</span> tourists_hotel<span class="op">/</span>avg_beds_per_room</span>
-<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of hotel rooms used by tourists who do not fit in airbnbs:'</span>, no_hotel_rooms_used)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#we sum individually the column 'accommodates' so we can retrieve the number of people who can stay </span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>no_ppl <span class="op">=</span> ok_listings.accommodates.<span class="bu">sum</span>()</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>tourists <span class="op">=</span> <span class="dv">30000</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>tourists_hotel <span class="op">=</span> tourists<span class="op">-</span>no_ppl</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>hotel_rooms_ams <span class="op">=</span> <span class="dv">41840</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>hotel_beds_ams <span class="op">=</span> <span class="dv">90918</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>avg_beds_per_room <span class="op">=</span> hotel_beds_ams<span class="op">/</span>hotel_rooms_ams</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="co">#print(avg_beds_per_room)</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="co">#Number of hotel rooms used by tourists who don't fit in airbnbs</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>no_hotel_rooms_used <span class="op">=</span> tourists_hotel<span class="op">/</span>avg_beds_per_room</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of hotel rooms used by tourists who do not fit in airbnbs:'</span>, no_hotel_rooms_used)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Number of hotel rooms used by tourists who do not fit in airbnbs: 3034.0649816318</code></pre>
 </div>
@@ -785,15 +849,15 @@ C:\Users\jjcor\AppData\Local\Temp\ipykernel_10580\4277228365.py:47: FutureWarnin
 <section id="how-many-different-licenses-are-issued" class="level3">
 <h3 class="anchored" data-anchor-id="how-many-different-licenses-are-issued">6. How many different licenses are issued?</h3>
 <div class="cell" data-tags="[]">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">#verifying license column</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="co">#print(ok_listings.columns[68])</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>licenses <span class="op">=</span> (ok_listings.license.nunique())</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>license_values <span class="op">=</span>(ok_listings.license.value_counts())</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(license_values)</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>exemptions <span class="op">=</span> (ok_listings.license.value_counts()[<span class="st">'Exempt'</span>])</span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>ulicenses <span class="op">=</span> licenses<span class="op">-</span>exemptions</span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of unique Airbnb licenses in Amsterdam (not counting the exempt values):'</span>,ulicenses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">#verifying license column</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co">#print(ok_listings.columns[68])</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>licenses <span class="op">=</span> (ok_listings.license.nunique())</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>license_values <span class="op">=</span>(ok_listings.license.value_counts())</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(license_values)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>exemptions <span class="op">=</span> (ok_listings.license.value_counts()[<span class="st">'Exempt'</span>])</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>ulicenses <span class="op">=</span> licenses<span class="op">-</span>exemptions</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of unique Airbnb licenses in Amsterdam (not counting the exempt values):'</span>,ulicenses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>license
 Exempt                      600
